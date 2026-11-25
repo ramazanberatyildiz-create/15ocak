@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Ankara'ya Geri Sayım — 15 Ocak 2027</title>
+  <meta name="description" content="15 Ocak 2027 Ankara'ya varış geri sayımı — Arkadaş Modu ve Sevgili Modu." />
+
+  <!-- PWA & Mobil Ana Ekran Meta Etiketleri -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ankara Sayaç" />
+  <meta name="application-name" content="Ankara Sayaç" />
+  <meta name="theme-color" content="#070b14" id="theme-color-meta" />
+
+  <!-- Dinamik İkon ve Manifest Bağlantıları (JS içinde güvenli try/catch ile doldurulur) -->
+  <link rel="icon" id="dynamic-favicon" type="image/svg+xml" href="" />
+  <link rel="apple-touch-icon" id="dynamic-apple-icon" href="" />
+  <link rel="manifest" id="dynamic-manifest" href="" />
+
+  <!-- Google Fonts: Arkadaş (Space Grotesk & Outfit) + Sevgili (Playfair Display & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    try {
+      if (typeof tailwind !== "undefined") {
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                friendHead: ['"Space Grotesk"', "sans-serif"],
+                friendBody: ['"Outfit"', "sans-serif"],
+                loveHead: ['"Playfair Display"', "serif"],
+                loveBody: ['"Plus Jakarta Sans"', "sans-serif"]
+              },
+              keyframes: {
+                softFloat: {
+                  "0%, 100%": { transform: "translateY(0px)" },
+                  "50%": { transform: "translateY(-6px)" }
+                },
+                digitFlip: {
+                  "0%": { transform: "translateY(-4px) scale(0.92)", opacity: "0.6" },
+                  "60%": { transform: "translateY(1px) scale(1.04)", opacity: "1" },
+                  "100%": { transform: "translateY(0) scale(1)", opacity: "1" }
+                },
+                heartBeat: {
+                  "0%, 100%": { transform: "scale(1)" },
+                  "14%": { transform: "scale(1.18)" },
+                  "28%": { transform: "scale(1)" },
+                  "42%": { transform: "scale(1.12)" },
+                  "70%": { transform: "scale(1)" }
+                },
+                shimmerBar: {
+                  "0%": { backgroundPosition: "200% 0" },
+                  "100%": { backgroundPosition: "-200% 0" }
+                },
+                neonPulse: {
+                  "0%, 100%": {
+                    boxShadow: "0 0 18px rgba(0, 245, 212, 0.24), 0 0 36px rgba(163, 230, 53, 0.14)",
+                    borderColor: "rgba(0, 245, 212, 0.52)"
+                  },
+                  "50%": {
+                    boxShadow: "0 0 32px rgba(0, 245, 212, 0.48), 0 0 58px rgba(163, 230, 53, 0.28)",
+                    borderColor: "rgba(163, 230, 53, 0.8)"
+                  }
+                },
+                wiggle: {
+                  "0%, 100%": { transform: "rotate(0deg) translateX(0px)" },
+                  "20%": { transform: "rotate(-6deg) translateX(-3px)" },
+                  "40%": { transform: "rotate(6deg) translateX(3px)" },
+                  "60%": { transform: "rotate(-4deg) translateX(-2px)" },
+                  "80%": { transform: "rotate(4deg) translateX(2px)" }
+                },
+                glitchShake: {
+                  "0%, 100%": { transform: "translate(0, 0) skew(0deg)" },
+                  "20%": { transform: "translate(-4px, 2px) skew(-2deg)" },
+                  "40%": { transform: "translate(4px, -2px) skew(2deg)" },
+                  "60%": { transform: "translate(-3px, -1px) skew(-1deg)" },
+                  "80%": { transform: "translate(3px, 2px) skew(1deg)" }
+                },
+                envelopeReveal: {
+                  "0%": { opacity: "0", transform: "translateY(10px) scale(0.96)" },
+                  "100%": { opacity: "1", transform: "translateY(0) scale(1)" }
+                }
+              },
+              animation: {
+                softFloat: "softFloat 3.8s ease-in-out infinite",
+                digitFlip: "digitFlip 0.28s cubic-bezier(0.22, 1, 0.36, 1)",
+                heartBeat: "heartBeat 1.85s ease-in-out infinite",
+                shimmerBar: "shimmerBar 3.2s linear infinite",
+                neonPulse: "neonPulse 3s ease-in-out infinite",
+                wiggle: "wiggle 0.45s ease-in-out",
+                glitchShake: "glitchShake 0.14s linear infinite",
+                envelopeReveal: "envelopeReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards"
+              }
+            }
+          }
+        };
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Temel Güvenilirlik, Dokunmatik Uyum ve Hamamböceği Animasyon Stilleri -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Arka plan katmanları asla tıklamayı engellemez */
+    #theme-bg-layer,
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ana ekran katmanları daima arka planın üstünde durur */
+    #entry-screen,
+    #app-screen {
+      position: relative;
+      z-index: 10;
+      padding-bottom: 100px;
+    }
+
+    /* Giriş seçim butonları mobil WebView için maksimum dokunma güvenliği sağlar */
+    .entry-choice-btn {
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+      z-index: 20;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    button, a {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Hamamböceği bacak ve anten animasyonları */
+    @keyframes roachLegLeft {
+      0%, 100% { transform: rotate(-10deg); }
+      50% { transform: rotate(12deg); }
+    }
+    @keyframes roachLegRight {
+      0%, 100% { transform: rotate(10deg); }
+      50% { transform: rotate(-12deg); }
+    }
+    @keyframes antennaWiggle {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(10deg); }
+    }
+    @keyframes roachPopOut {
+      0% { transform: scale(1) rotate(0deg); opacity: 1; }
+      45% { transform: scale(1.4) rotate(180deg); opacity: 0.95; }
+      100% { transform: scale(0.15) rotate(360deg); opacity: 0; }
+    }
+    .roach-leg-l {
+      transform-origin: 32px 36px;
+      animation: roachLegLeft 0.14s ease-in-out infinite;
+    }
+    .roach-leg-r {
+      transform-origin: 32px 36px;
+      animation: roachLegRight 0.14s ease-in-out infinite;
+    }
+    .roach-antenna-l {
+      transform-origin: 28px 17px;
+      animation: antennaWiggle 0.3s ease-in-out infinite;
+    }
+    .roach-antenna-r {
+      transform-origin: 36px 17px;
+      animation: antennaWiggle 0.3s ease-in-out infinite reverse;
+    }
+    .roach-squished {
+      animation: roachPopOut 0.42s ease-out forwards !important;
+      pointer-events: none;
+    }
+
+    /* Şık ince scrollbar */
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(244, 167, 185, 0.35);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body id="app-body" class="min-h-screen w-full bg-[#070b14] text-slate-100 font-friendBody transition-colors duration-500">
+
+  <!-- Dinamik Arka Plan Gradyan Katmanı (pointer-events: none, z-index: 0) -->
+  <div id="theme-bg-layer" class="transition-all duration-700 bg-[radial-gradient(ellipse_at_top,_rgba(0,245,212,0.14),_transparent_56%),radial-gradient(ellipse_at_bottom_right,_rgba(163,230,53,0.12),_transparent_52%),linear-gradient(180deg,_#070b14_0%,_#0d1424_100%)]"></div>
+
+  <!-- Arka Plan Canvas Katmanı: Cyber Grid / Kalpler & Bokeh / Konfeti (pointer-events: none, z-index: 0) -->
+  <canvas id="bg-canvas" class="w-full h-full"></canvas>
+
+  <!-- Hamamböceği Mini-Oyun Katmanı (yalnızca böcekler tıklanabilir) -->
+  <div id="roach-layer" class="fixed inset-0 z-40 pointer-events-none overflow-hidden"></div>
+
+  <!-- ===================================================================== -->
+  <!-- 1. GİRİŞ SEÇİM EKRANI ("Bu sayfaya kim bakıyor?")                     -->
+  <!-- ===================================================================== -->
+  <section
+    id="entry-screen"
+    style="display: flex;"
+    class="min-h-screen w-full flex-col items-center justify-center px-4 pt-10 sm:px-6"
+    aria-label="Arayüz Seçimi"
+  >
+    <!-- Dekoratif Parıltılar (pointer-events: none, z-index: 0) -->
+    <div style="pointer-events: none; z-index: 0;" class="fixed -top-24 -left-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-[#00f5d4]/15 blur-3xl"></div>
+    <div style="pointer-events: none; z-index: 0;" class="fixed -bottom-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-[#f4a7b9]/20 blur-3xl"></div>
+
+    <div class="relative z-10 w-full max-w-2xl mx-auto text-center">
+      <!-- Üst Rozet -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-slate-200 mb-5 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-[#00f5d4] animate-pulse"></span>
+        <span>HEDEF: ANKARA • 15 OCAK 2027</span>
+        <span class="w-2 h-2 rounded-full bg-[#f4a7b9] animate-pulse"></span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3 font-friendHead leading-tight">
+        Bu sayfaya kim bakıyor?
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-md mx-auto mb-8 sm:mb-10 leading-relaxed">
+        Ankara geri sayımı için sana özel hazırlanan arayüzü seçerek devam et.
+      </p>
+
+      <!-- İki Büyük Etkileşimli <button type="button"> Kartı -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+        <!-- Kart 1: Arkadaş -->
+        <button
+          type="button"
+          id="select-friend-btn"
+          class="entry-choice-btn group relative overflow-hidden text-left w-full p-6 sm:p-7 rounded-3xl bg-[#0e1526]/90 border border-[#00f5d4]/35 hover:border-[#00f5d4]/80 active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-black/50 focus:outline-none focus:ring-2 focus:ring-[#00f5d4]/70"
+        >
+          <div style="pointer-events: none;" class="absolute inset-0 bg-gradient-to-br from-[#00f5d4]/12 via-transparent to-[#a3e635]/12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div style="pointer-events: none;" class="relative z-10 flex flex-col justify-between gap-5">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-[#00f5d4]/15 border border-[#00f5d4]/35 flex items-center justify-center text-3xl group-hover:scale-105 transition-transform">
+                🪳
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#a3e635]/15 text-[#a3e635] border border-[#a3e635]/35">
+                NEON &amp; TROL
+              </span>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white font-friendHead mb-1.5 flex items-center gap-2">
+                <span>Arkadaş</span>
+                <span class="text-[#00f5d4] group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+              <p class="text-sm text-slate-300/85 leading-relaxed">
+                Trol, sayaç ve 15 Ocak planı
+              </p>
+            </div>
+          </div>
+        </button>
+
+        <!-- Kart 2: Sevgilim -->
+        <button
+          type="button"
+          id="select-love-btn"
+          class="entry-choice-btn group relative overflow-hidden text-left w-full p-6 sm:p-7 rounded-3xl bg-[#260914]/95 border border-[#f4a7b9]/35 hover:border-[#ffd1dc]/80 active:scale-[0.98] transition-all duration-300 shadow-2xl shadow-black/50 focus:outline-none focus:ring-2 focus:ring-[#f4a7b9]/70"
+        >
+          <div style="pointer-events: none;" class="absolute inset-0 bg-gradient-to-br from-[#f4a7b9]/18 via-transparent to-[#ffd1dc]/12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div style="pointer-events: none;" class="relative z-10 flex flex-col justify-between gap-5">
+            <div class="flex items-center justify-between">
+              <div class="w-14 h-14 rounded-2xl bg-[#f4a7b9]/15 border border-[#f4a7b9]/35 flex items-center justify-center text-[#ffd1dc] group-hover:scale-105 transition-transform">
+                <svg class="w-7 h-7 animate-heartBeat" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                </svg>
+              </div>
+              <span class="px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#f4a7b9]/15 text-[#ffd1dc] border border-[#f4a7b9]/35">
+                AŞK TEMASI
+              </span>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-[#ffd1dc] font-loveHead mb-1.5 flex items-center gap-2">
+                <span>Sevgilim</span>
+                <span class="text-[#f4a7b9] group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+              <p class="text-sm text-[#f4a7b9]/85 leading-relaxed">
+                Sana özel geri sayım, kilitli mesajlar ve şarkımız
+              </p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <p class="mt-7 text-xs text-slate-400/90 leading-relaxed px-2">
+        İpucu: Direkt paylaşmak için linkin sonuna <span class="text-slate-200 font-mono">?mod=sevgili&amp;kilit=1</span> veya <span class="text-slate-200 font-mono">?mod=arkadas</span> ekleyebilirsin.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 2. ANA UYGULAMA EKRANI (#app-screen, başlangıçta display: none)       -->
+  <!-- ===================================================================== -->
+  <div id="app-screen" style="display: none;" class="min-h-screen w-full">
+
+    <!-- ÜST GEZİNTİ ÇUBUĞU -->
+    <header class="sticky top-0 z-30 w-full px-4 py-3.5 sm:px-6 backdrop-blur-xl bg-black/25 border-b border-white/10">
+      <div class="max-w-3xl mx-auto flex items-center justify-between gap-2">
+        <!-- Sol: Seçim Ekranına Dön + Aktif Mod Rozeti -->
+        <div class="flex items-center gap-2 min-w-0">
+          <button
+            type="button"
+            id="back-to-entry-btn"
+            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold border transition-all active:scale-95 bg-white/5 border-white/15 text-slate-200 hover:bg-white/10"
+            title="Seçim Ekranına Dön"
+          >
+            <span>←</span>
+            <span class="hidden sm:inline">Geri</span>
+          </button>
+          <span
+            id="nav-active-badge"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border truncate"
+          >
+            🪳 Arkadaş Modu
+          </span>
+        </div>
+
+        <!-- Sağ: Anlık Tema Değiştirici (&kilit=1 ile gizlenir) -->
+        <button
+          type="button"
+          id="instant-switch-btn"
+          class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all active:scale-95 shrink-0"
+        >
+          <span id="instant-switch-text">Sevgili Modu ❤️</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ANA İÇERİK -->
+    <main class="w-full max-w-3xl mx-auto px-4 pt-7 sm:px-6 sm:pt-10 flex flex-col items-center text-center">
+
+      <!-- Üst Durum Rozeti -->
+      <div
+        id="header-badge"
+        class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4 backdrop-blur-md border transition-all duration-500"
+      >
+        <span id="header-badge-icon" class="relative flex h-2.5 w-2.5"></span>
+        <span id="header-badge-text">ANKARA GERİ SAYIM AKTİF</span>
+      </div>
+
+      <!-- Ana Başlık & Alt Başlık -->
+      <h1 id="main-title" class="text-3xl sm:text-5xl font-bold tracking-tight mb-3 leading-tight">
+        Ankara'ya Dönüş Başladı
+      </h1>
+      <p id="main-subtitle" class="text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed">
+        Ayazı açın, çayları demleyin; 15 Ocak'ta iniş yapıyorum.
+      </p>
+
+      <!-- =============================================================== -->
+      <!-- CANLI GERİ SAYIM KARTLARI (Gün, Saat, Dakika, Saniye)           -->
+      <!-- =============================================================== -->
+      <section id="countdown-section" class="w-full mb-5" aria-label="Geri Sayım">
+        <div id="countdown-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full">
+          <div class="countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500">
+            <span id="cd-days" class="countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2">00</span>
+            <span class="countdown-label text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">Gün</span>
+          </div>
+          <div class="countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500">
+            <span id="cd-hours" class="countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2">00</span>
+            <span class="countdown-label text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">Saat</span>
+          </div>
+          <div class="countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500">
+            <span id="cd-minutes" class="countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2">00</span>
+            <span class="countdown-label text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">Dakika</span>
+          </div>
+          <div class="countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500">
+            <span id="cd-seconds" class="countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2">00</span>
+            <span class="countdown-label text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em]">Saniye</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================================================== -->
+      <!-- VARIŞ KUTLAMA EKRANI (Sayaç Sıfırlandığında Görünür)            -->
+      <!-- =============================================================== -->
+      <section id="arrival-section" style="display: none;" class="w-full mb-6">
+        <div id="arrival-card" class="relative overflow-hidden rounded-3xl p-7 sm:p-10 backdrop-blur-xl border text-center">
+          <div id="arrival-emoji" class="text-5xl sm:text-6xl mb-4 animate-softFloat">🎉</div>
+          <h2 id="arrival-title" class="text-3xl sm:text-5xl font-bold mb-3">ANKARA'DAYIM! 🎉</h2>
+          <p id="arrival-subtitle" class="text-sm sm:text-base max-w-md mx-auto mb-6 opacity-90">
+            Beklenen an geldi, konumu atın geliyorum!
+          </p>
+          <button
+            type="button"
+            id="replay-celebration-btn"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold transition-all active:scale-95"
+          >
+            <span>Kutlamayı Tekrarla</span>
+            <span>✨</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- =============================================================== -->
+      <!-- HIZLI AKSİYON SATIRI: TAKVİME EKLE & ANA EKRANA SABİTLE         -->
+      <!-- =============================================================== -->
+      <section class="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6" aria-label="Hızlı İşlemler">
+        <button
+          type="button"
+          id="add-calendar-btn"
+          class="action-pill-btn group flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl backdrop-blur-xl border text-sm font-semibold transition-all active:scale-[0.98]"
+        >
+          <span>📅</span>
+          <span>Takvime Ekle</span>
+        </button>
+
+        <button
+          type="button"
+          id="pin-home-btn"
+          class="action-pill-btn group flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl backdrop-blur-xl border text-sm font-semibold transition-all active:scale-[0.98]"
+        >
+          <span>📲</span>
+          <span>Ana Ekrana Sabitle</span>
+        </button>
+      </section>
+
+      <!-- =============================================================== -->
+      <!-- ANKARA ROTA İLERLEME ÇUBUĞU & DİNAMİK DURUM ROZETİ              -->
+      <!-- =============================================================== -->
+      <section
+        id="progress-card"
+        class="w-full rounded-3xl p-5 sm:p-6 backdrop-blur-xl border transition-all duration-500 mb-6 text-left"
+      >
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+          <div class="flex items-center gap-2">
+            <span id="progress-label" class="text-xs sm:text-sm font-semibold tracking-wide uppercase">
+              Ankara Rota İlerlemesi
+            </span>
+            <span id="progress-percent" class="px-2.5 py-0.5 rounded-full text-xs font-bold tabular-nums">
+              %0
+            </span>
+          </div>
+          <div id="target-date-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border">
+            <span id="target-date-text">Hedef: Ankara • 15 Oca 2027</span>
+          </div>
+        </div>
+
+        <div class="relative w-full h-3 rounded-full bg-white/10 overflow-hidden mb-3.5">
+          <div
+            id="progress-bar-fill"
+            class="h-full rounded-full transition-all duration-700 ease-out bg-[length:200%_100%] animate-shimmerBar"
+            style="width: 4%"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] sm:text-xs font-medium tracking-wider uppercase opacity-85 mb-3">
+          <span id="route-start-label" class="flex items-center gap-1.5"></span>
+          <span class="flex-1 mx-3 border-b border-dashed border-current opacity-35 relative flex items-center justify-center">
+            <span id="route-icon" class="absolute -top-2.5 px-1.5 text-sm leading-none">🪳</span>
+          </span>
+          <span id="route-end-label" class="flex items-center gap-1.5 font-bold"></span>
+        </div>
+
+        <!-- Kalan Güne Göre Dinamik Durum Rozeti -->
+        <div class="pt-2.5 border-t border-white/10 flex items-center justify-between gap-2 flex-wrap">
+          <span class="text-[11px] uppercase tracking-wider opacity-70 font-semibold">Canlı Durum:</span>
+          <span id="dynamic-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border">
+            🪳 Hamamböceği konseyinden onay bekleniyor
+          </span>
+        </div>
+      </section>
+
+      <!-- =============================================================== -->
+      <!-- TEMA 1: ARKADAŞ MODU (Neon Banner + Trol + Hamamböceği Oyunu)   -->
+      <!-- =============================================================== -->
+      <section id="friend-extras" class="w-full space-y-5">
+
+        <!-- Neon Glow Vurgu Kartı: "Abi 15 Ocak'ta napıyorsun?" -->
+        <div class="relative w-full overflow-hidden rounded-3xl p-7 sm:p-9 backdrop-blur-xl border border-[#00f5d4]/50 bg-gradient-to-br from-[#0e1726]/92 via-[#09111f]/95 to-[#101d19]/88 animate-neonPulse text-center">
+          <div style="pointer-events: none;" class="absolute -top-14 -left-14 w-44 h-44 rounded-full bg-[#00f5d4]/20 blur-3xl"></div>
+          <div style="pointer-events: none;" class="absolute -bottom-14 -right-14 w-44 h-44 rounded-full bg-[#a3e635]/20 blur-3xl"></div>
+          <div style="pointer-events: none;" class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-gradient-to-r from-transparent via-[#00f5d4] to-transparent opacity-85"></div>
+
+          <div class="relative z-10 flex flex-col items-center justify-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-[#00f5d4]/10 text-[#00f5d4] border border-[#00f5d4]/30 mb-1">
+              <span>⚡</span>
+              <span>Resmi Plan Sorgusu</span>
+            </span>
+            <h2 class="font-friendHead text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-[#00f5d4] via-white to-[#a3e635] bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(0,245,212,0.4)] leading-tight">
+              Abi 15 Ocak'ta napıyorsun?
+            </h2>
+          </div>
+
+          <div style="pointer-events: none;" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-[#a3e635] to-transparent opacity-75"></div>
+        </div>
+
+        <!-- Zamanı Hızlandır ⚡ Trol Kartı -->
+        <div class="w-full rounded-3xl p-5 sm:p-6 backdrop-blur-xl border border-slate-700/80 bg-[#0c1322]/85 shadow-xl shadow-black/45 text-left">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 class="font-friendHead text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <span>⚡</span>
+                <span>Zamanı Hızlandır (Deneysel)</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                15 Ocak çok mu uzak geldi? Sayacı hızlandırmayı dene, sorumluluk sana ait.
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#00f5d4]/10 text-[#00f5d4] border border-[#00f5d4]/30">
+              Trol Modu
+            </span>
+          </div>
+
+          <button
+            type="button"
+            id="troll-speed-btn"
+            class="w-full flex items-center justify-center gap-2.5 px-5 py-4 rounded-2xl font-friendHead font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-[#00f5d4] to-[#2dd4bf] hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-[#00f5d4]/25"
+          >
+            <span class="text-lg">⚡</span>
+            <span>Zamanı Hızlandır</span>
+          </button>
+
+          <div id="troll-alert-box" class="hidden mt-3.5 px-4 py-3 rounded-2xl bg-[#a3e635]/10 border border-[#a3e635]/35 text-xs sm:text-sm font-medium text-[#d9f99d]"></div>
+        </div>
+
+        <!-- Hamamböceği Sal 🪳 Mini-Oyun Kartı -->
+        <div class="w-full rounded-3xl p-5 sm:p-6 backdrop-blur-xl border border-slate-700/80 bg-[#0c1322]/85 shadow-xl shadow-black/45 text-left">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="font-friendHead text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <span>🪳</span>
+                <span>Hamamböceği Sal — Mini Oyun</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Ekrana hamamböceği sal, kaçmadan üstüne dokunup yakala ve rütbe atla!
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#a3e635]/15 border border-[#a3e635]/35 text-[#d9f99d] text-xs font-bold">
+                <span>🎯 Skor:</span>
+                <span id="roach-score" class="text-white tabular-nums">0</span>
+              </span>
+              <span id="roach-rank-badge" class="inline-flex items-center px-3 py-1 rounded-xl bg-[#00f5d4]/15 border border-[#00f5d4]/35 text-[#00f5d4] text-xs font-bold">
+                Çaylak
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3.5">
+            <button
+              type="button"
+              id="spawn-roach-btn"
+              class="sm:col-span-2 flex items-center justify-center gap-2.5 px-5 py-4 rounded-2xl font-friendHead font-bold text-sm sm:text-base text-[#d9f99d] bg-[#a3e635]/15 hover:bg-[#a3e635]/25 border border-[#a3e635]/45 active:scale-[0.98] transition-all"
+            >
+              <span class="text-lg">🪳</span>
+              <span>Hamamböceği Sal</span>
+            </button>
+
+            <button
+              type="button"
+              id="clear-roaches-btn"
+              class="flex items-center justify-center gap-2 px-4 py-4 rounded-2xl font-friendHead font-semibold text-xs sm:text-sm text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 active:scale-[0.98] transition-all"
+            >
+              <span>🧹</span>
+              <span>Ekranı Temizle</span>
+            </button>
+          </div>
+
+          <div class="px-4 py-3 rounded-2xl bg-black/35 border border-white/10 text-xs sm:text-sm text-slate-300">
+            <span id="roach-comment-text">İpucu: Koşan hamamböceklerine dokunarak onları yakala!</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============================================================== -->
+      <!-- TEMA 2: SEVGİLİ MODU (Kilitli Mesaj + Spotify Aşk + Özledim)    -->
+      <!-- =============================================================== -->
+      <section id="love-extras" style="display: none;" class="w-full space-y-6">
+
+        <!-- 2A. HER GÜNE ÖZEL KİLİTLİ MESAJ KARTI -->
+        <div class="relative overflow-hidden w-full rounded-3xl p-5 sm:p-7 backdrop-blur-xl border border-[#f4a7b9]/30 bg-gradient-to-br from-[#350d1d]/90 via-[#250915]/90 to-[#1a0710]/95 shadow-2xl shadow-black/50 text-center">
+          <div style="pointer-events: none;" class="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-36 bg-[#f4a7b9]/18 blur-3xl rounded-full"></div>
+
+          <div class="relative z-10">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f4a7b9]/15 border border-[#f4a7b9]/30 text-[#ffd1dc] text-xs font-semibold">
+                💌 Her Güne Özel Kilitli Mesaj
+              </span>
+              <span id="daily-day-badge" class="text-xs font-semibold text-[#f4a7b9]">
+                1. Gün • 25 Kas
+              </span>
+            </div>
+
+            <!-- Etkileşimli Mühürlü Zarf / Mesaj Kutusu -->
+            <div class="relative rounded-2xl p-5 sm:p-6 border border-[#f4a7b9]/25 bg-black/25 mb-4">
+              <!-- Kapalı Zarf -->
+              <div id="envelope-sealed-view" class="flex flex-col items-center justify-center py-2">
+                <button
+                  type="button"
+                  id="open-today-envelope-btn"
+                  class="group flex flex-col items-center justify-center w-full focus:outline-none"
+                >
+                  <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#f4a7b9]/25 to-[#ffd1dc]/15 border border-[#f4a7b9]/45 flex items-center justify-center mb-3 shadow-lg group-hover:scale-105 transition-transform">
+                    <span class="text-3xl animate-softFloat">💌</span>
+                  </div>
+                  <h3 id="envelope-sealed-title" class="font-loveHead text-xl sm:text-2xl text-[#ffd1dc] font-semibold mb-1.5">
+                    Bugünün Mesajı Seni Bekliyor
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#f4a7b9]/85 mb-4">
+                    Mührü açmak için zarfa dokun sevgilim
+                  </p>
+                  <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-[#1a0710] bg-gradient-to-r from-[#ffd1dc] via-[#f4a7b9] to-[#e893a8] shadow-lg">
+                    <span>Bugünün Mesajını Aç</span>
+                    <span>✨</span>
+                  </span>
+                </button>
+              </div>
+
+              <!-- Açılmış Mesaj -->
+              <div id="envelope-opened-view" style="display: none;" class="flex-col items-center justify-center py-2">
+                <div id="opened-msg-meta" class="text-xs uppercase tracking-[0.2em] text-[#f4a7b9] font-semibold mb-3">
+                  BUGÜNÜN NOTU
+                </div>
+                <p id="opened-msg-text" class="font-loveHead italic text-xl sm:text-2xl text-[#fff0f4] leading-relaxed px-1 sm:px-4 mb-4">
+                  "..."
+                </p>
+                <div class="inline-flex items-center gap-1.5 text-[11px] text-[#f4a7b9]/85">
+                  <span>♥</span>
+                  <span>15 Ocak'a kadar her gün yeni bir not seni bekliyor</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yarının Mesajına Canlı Geri Sayım -->
+            <div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#3b0e20]/80 border border-[#f4a7b9]/25 text-xs sm:text-sm text-[#ffd1dc] mb-5">
+              <span>⏳</span>
+              <span class="opacity-85">Yarının mesajına kalan süre:</span>
+              <span id="next-message-timer" class="font-bold tabular-nums text-white tracking-wider">00:00:00</span>
+            </div>
+
+            <!-- Genişletilebilir Günlük Mesaj Takvimi -->
+            <div class="border-t border-[#f4a7b9]/15 pt-4 text-left">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <button
+                  type="button"
+                  id="toggle-calendar-grid-btn"
+                  class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#ffd1dc] hover:text-white transition-colors"
+                >
+                  <span>📅 Günlük Mesaj Takvimi (55 Gün)</span>
+                  <span id="calendar-chevron" class="inline-block transition-transform duration-300">▾</span>
+                </button>
+                <span id="unlocked-count-badge" class="text-[11px] text-[#f4a7b9] font-medium">
+                  1 / 55 açık
+                </span>
+              </div>
+
+              <div
+                id="daily-calendar-grid"
+                class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-56 overflow-y-auto pr-1 custom-scroll"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2B. BİZİM ŞARKIMIZ — DENİZ SEKİ — AŞK (SPOTIFY KODU + OYNATICI) -->
+        <div class="relative overflow-hidden w-full rounded-3xl p-5 sm:p-7 backdrop-blur-xl border border-[#f4a7b9]/30 bg-gradient-to-br from-[#2b0c1a]/92 via-[#1d0711]/95 to-[#14050c]/95 shadow-2xl shadow-black/50 text-left">
+          <div style="pointer-events: none;" class="absolute -right-14 -top-14 w-48 h-48 rounded-full bg-[#f4a7b9]/15 blur-3xl"></div>
+
+          <div class="relative z-10">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#f4a7b9]/25 to-[#3d0c1c] border border-[#f4a7b9]/35 flex items-center justify-center text-xl shrink-0">
+                  🎵
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="font-loveHead text-xl sm:text-2xl font-semibold text-[#ffd1dc] leading-tight">
+                      Deniz Seki — Aşk
+                    </h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#f4a7b9]/15 text-[#ffd1dc] border border-[#f4a7b9]/25">
+                      Albüm: Anlattım • 04:57
+                    </span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-[#f4a7b9]/85 font-medium mt-0.5">
+                    Bizim Şarkımız
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                id="toggle-spotify-link-btn"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-[#ffd1dc] border border-[#f4a7b9]/30 transition-all active:scale-95"
+              >
+                <span>🔗 Spotify Linki Ekle</span>
+              </button>
+            </div>
+
+            <!-- Açılır/Kapanır Spotify Linki Ekleme ve Temizleme Paneli -->
+            <div id="spotify-link-panel" style="display: none;" class="mb-4 p-3.5 rounded-2xl bg-black/35 border border-[#f4a7b9]/25 space-y-2.5">
+              <label for="inline-spotify-url" class="block text-[11px] font-semibold uppercase tracking-wider text-[#f4a7b9]">
+                Spotify Paylaşım Linki (Gömülü Oynatıcı)
+              </label>
+              <div class="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="url"
+                  id="inline-spotify-url"
+                  placeholder="https://open.spotify.com/track/..."
+                  class="flex-1 px-3 py-2.5 rounded-xl bg-black/45 border border-[#f4a7b9]/25 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-[#ffd1dc]"
+                />
+                <div class="flex gap-2">
+                  <button
+                    type="button"
+                    id="inline-spotify-apply-btn"
+                    class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs font-semibold text-[#1a0710] bg-gradient-to-r from-[#ffd1dc] to-[#f4a7b9] active:scale-95 transition-all"
+                  >
+                    Uygula
+                  </button>
+                  <button
+                    type="button"
+                    id="inline-spotify-clear-btn"
+                    class="px-3 py-2.5 rounded-xl text-xs font-medium text-[#ffd1dc] bg-white/10 hover:bg-white/15 border border-white/10 active:scale-95 transition-all"
+                  >
+                    Temizle
+                  </button>
+                </div>
+              </div>
+              <p class="text-[11px] text-[#f4a7b9]/75">
+                Spotify'da Paylaş &gt; Bağlantıyı Kopyala yapıp buraya yapıştırırsan gömülü oynatıcı direkt açılır.
+              </p>
+            </div>
+
+            <!-- Yüksek Kontrastlı Taranabilir Spotify Kodu SVG (23 Çubuk — Deniz Seki: Aşk) -->
+            <div class="rounded-2xl p-3 sm:p-4 bg-[#d4e2f0] border border-[#f4a7b9]/45 shadow-inner mb-2.5 flex flex-col items-center">
+              <svg
+                id="spotify-code-svg"
+                viewBox="0 0 640 160"
+                class="w-full max-w-[480px] h-auto block"
+                role="img"
+                aria-label="Deniz Seki - Aşk Spotify Kodu"
+              >
+                <rect width="640" height="160" rx="18" fill="#d4e2f0" />
+                <circle cx="80" cy="80" r="46" fill="#000000" />
+                <path d="M 51 64.5 Q 81 55 111 70.5" fill="none" stroke="#d4e2f0" stroke-width="7.2" stroke-linecap="round" />
+                <path d="M 55.5 79.5 Q 80.5 71.5 105.5 84.5" fill="none" stroke="#d4e2f0" stroke-width="6" stroke-linecap="round" />
+                <path d="M 60 94 Q 80 87.5 100 98" fill="none" stroke="#d4e2f0" stroke-width="5" stroke-linecap="round" />
+                <g id="spotify-code-bars" fill="#000000"></g>
+              </svg>
+            </div>
+
+            <p class="text-[11px] sm:text-xs text-[#f4a7b9]/85 text-center mb-4">
+              Spotify &gt; Ara &gt; Kamera ikonuna basıp bu kodu taratabilirsin
+            </p>
+
+            <!-- Canlı Gömülü Spotify Iframe (Link eklendiğinde açılır) -->
+            <div id="spotify-embed-container" style="display: none;" class="mb-4 overflow-hidden rounded-2xl border border-[#f4a7b9]/25 bg-black/40"></div>
+
+            <!-- Alt Aksiyon Butonları -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button
+                type="button"
+                id="enlarge-spotify-btn"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold text-[#ffd1dc] bg-[#3d0e22]/85 hover:bg-[#4e122b] border border-[#f4a7b9]/35 active:scale-[0.98] transition-all"
+              >
+                <span>Taramak İçin Büyüt</span>
+                <span>🔍</span>
+              </button>
+
+              <a
+                id="spotify-open-link"
+                href="https://open.spotify.com/search/Deniz%20Seki%20A%C5%9Fk"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold text-[#1a0710] bg-gradient-to-r from-[#ffd1dc] via-[#f4a7b9] to-[#e893a8] hover:brightness-105 active:scale-[0.98] transition-all shadow-lg"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.56.39-.86.21-2.36-1.44-5.33-1.77-8.83-.97-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.83-.87 7.12-.5 9.77 1.12.3.18.39.57.21.87zm1.22-2.72c-.23.37-.71.49-1.08.26-2.7-1.66-6.82-2.14-10.01-1.17-.42.13-.86-.11-.99-.53-.13-.42.11-.86.53-.99 3.65-1.11 8.19-.57 11.29 1.34.37.23.49.71.26 1.09zm.11-2.83C14.68 8.95 9.33 8.77 6.23 9.71c-.49.15-1.02-.13-1.17-.62-.15-.49.13-1.02.62-1.17 3.55-1.08 9.46-.87 13.19 1.34.45.27.59.84.33 1.29-.27.44-.84.59-1.28.32z" />
+                </svg>
+                <span id="spotify-open-label">Spotify'da Aç</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2C. "ÖZLEDİM ❤️" ETKİLEŞİMLİ SAYAÇ KARTI -->
+        <div class="w-full rounded-3xl p-6 backdrop-blur-xl border border-[#f4a7b9]/25 bg-[#250915]/80 shadow-xl shadow-black/45 flex flex-col items-center justify-center gap-3 text-center">
+          <p class="text-xs uppercase tracking-[0.2em] text-[#f4a7b9] font-semibold">
+            Mesafeye İnat Kalp Gönder
+          </p>
+          <button
+            type="button"
+            id="miss-you-btn"
+            class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm sm:text-base text-white bg-gradient-to-r from-[#be185d] via-[#e11d48] to-[#f43f5e] shadow-xl shadow-rose-950/60 hover:scale-[1.03] active:scale-95 transition-all border border-[#ffd1dc]/35"
+          >
+            <span>Özledim</span>
+            <span class="text-lg leading-none animate-heartBeat">❤️</span>
+          </button>
+          <p id="miss-you-counter" class="text-xs sm:text-sm text-[#ffd1dc]/90 font-medium">
+            Özlediğinde dokun, kalpler sana gelsin
+          </p>
+          <p id="miss-you-reaction" class="text-xs italic text-[#f4a7b9]/85 min-h-[1.1rem]"></p>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- SAĞ ALT YÜZEN AYARLAR / ÖNİZLEME BUTONU (⚙️) -->
+    <button
+      type="button"
+      id="open-settings-btn"
+      title="Önizleme ve Ayarlar"
+      aria-label="Önizleme ve Ayarlar"
+      class="fixed bottom-6 right-5 z-30 w-12 h-12 rounded-2xl backdrop-blur-xl border flex items-center justify-center text-xl shadow-xl transition-all active:scale-95 bg-[#0d1424]/90 border-[#00f5d4]/35 text-white"
+    >
+      ⚙️
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 3. ANA EKRANA SABİTLEME REHBER MODALI (iOS & Android)                 -->
+  <!-- ===================================================================== -->
+  <div id="install-modal" style="display: none;" class="fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div id="install-modal-panel" class="w-full max-w-md rounded-3xl p-6 sm:p-7 border shadow-2xl bg-[#0d1424] border-slate-700 text-slate-100">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-lg">📲</span>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold">Ana Ekrana Sabitle</h3>
+            <p class="text-xs opacity-70">Uygulama gibi tek dokunuşla aç</p>
+          </div>
+        </div>
+        <button type="button" id="close-install-btn" aria-label="Kapat" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/15 flex items-center justify-center text-sm font-bold">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-3 text-left text-xs sm:text-sm">
+        <div class="rounded-2xl p-4 bg-white/5 border border-white/10">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold">🍎 iPhone / iPad (Safari)</span>
+            <span id="badge-ios-detected" style="display: none;" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Senin Cihazın</span>
+          </div>
+          <ol class="space-y-1.5 opacity-85 list-decimal list-inside">
+            <li>Alt çubuktaki <strong>Paylaş</strong> ikonuna (yukarı oklu kare) dokun.</li>
+            <li>Aşağı kaydırıp <strong>"Ana Ekrana Ekle"</strong> seçeneğine bas.</li>
+            <li>Sağ üstten <strong>"Ekle"</strong> diyerek tamamla.</li>
+          </ol>
+        </div>
+
+        <div class="rounded-2xl p-4 bg-white/5 border border-white/10">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold">🤖 Android (Chrome)</span>
+            <span id="badge-android-detected" style="display: none;" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Senin Cihazın</span>
+          </div>
+          <ol class="space-y-1.5 opacity-85 list-decimal list-inside">
+            <li>Sağ üstteki <strong>3 nokta (⋮)</strong> menüsüne dokun.</li>
+            <li><strong>"Ana ekrana ekle"</strong> veya <strong>"Uygulamayı yükle"</strong> seç.</li>
+            <li><strong>"Ekle"</strong> butonuna basarak onayla.</li>
+          </ol>
+        </div>
+      </div>
+
+      <button type="button" id="install-modal-ok-btn" class="mt-5 w-full py-3 rounded-xl font-semibold text-sm bg-white/10 hover:bg-white/15 border border-white/15 active:scale-[0.98]">
+        Anladım
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 4. TAM EKRAN SPOTIFY KODU TARAMA MODALI                               -->
+  <!-- ===================================================================== -->
+  <div id="spotify-scan-modal" style="display: none;" class="fixed inset-0 z-50 items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-xl">
+    <div class="w-full max-w-2xl rounded-3xl p-5 sm:p-8 bg-[#1e0710] border border-[#f4a7b9]/35 shadow-2xl text-center">
+      <div class="flex items-center justify-between gap-3 mb-5">
+        <div class="text-left">
+          <h3 class="font-loveHead text-xl sm:text-2xl font-semibold text-[#ffd1dc]">Deniz Seki — Aşk</h3>
+          <p class="text-xs text-[#f4a7b9]/85">Albüm: Anlattım • 04:57</p>
+        </div>
+        <button type="button" id="close-spotify-scan-btn" aria-label="Kapat" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/15 text-[#ffd1dc] flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+
+      <div class="w-full rounded-3xl p-4 sm:p-6 bg-[#d4e2f0] shadow-2xl mb-5">
+        <svg viewBox="0 0 640 160" class="w-full h-auto block" role="img" aria-label="Büyütülmüş Deniz Seki - Aşk Spotify Kodu">
+          <rect width="640" height="160" rx="20" fill="#d4e2f0" />
+          <circle cx="80" cy="80" r="46" fill="#000000" />
+          <path d="M 51 64.5 Q 81 55 111 70.5" fill="none" stroke="#d4e2f0" stroke-width="7.2" stroke-linecap="round" />
+          <path d="M 55.5 79.5 Q 80.5 71.5 105.5 84.5" fill="none" stroke="#d4e2f0" stroke-width="6" stroke-linecap="round" />
+          <path d="M 60 94 Q 80 87.5 100 98" fill="none" stroke="#d4e2f0" stroke-width="5" stroke-linecap="round" />
+          <g id="spotify-code-bars-large" fill="#000000"></g>
+        </svg>
+      </div>
+
+      <p class="text-xs sm:text-sm text-[#ffd1dc]/90 mb-5">
+        Telefonunda <strong>Spotify &gt; Ara &gt; Kamera</strong> ikonuna dokunup bu kodu taratabilirsin.
+      </p>
+
+      <button type="button" id="spotify-scan-done-btn" class="w-full sm:w-auto px-8 py-3 rounded-2xl text-sm font-semibold text-[#1a0710] bg-gradient-to-r from-[#ffd1dc] via-[#f4a7b9] to-[#e893a8] active:scale-95">
+        Kapat
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 5. AYARLAR & ÖNİZLEME MODALI                                          -->
+  <!-- ===================================================================== -->
+  <div id="settings-modal" style="display: none;" class="fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div id="settings-modal-panel" class="w-full max-w-md max-h-[88vh] overflow-y-auto custom-scroll rounded-3xl p-6 sm:p-7 border shadow-2xl bg-[#0d1424] border-slate-700 text-slate-100">
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <h3 class="text-lg font-bold">Önizleme &amp; Paylaşım Ayarları</h3>
+          <p class="text-xs opacity-70 mt-0.5">Tarih testi, varış kutlaması ve direkt linkler</p>
+        </div>
+        <button type="button" id="close-settings-btn" aria-label="Kapat" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/15 flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+
+      <form id="settings-form" class="space-y-4 text-left">
+        <div>
+          <label for="input-target-date" class="block text-xs font-semibold uppercase tracking-wider opacity-80 mb-1.5">
+            Özel Hedef Tarih &amp; Saat Testi
+          </label>
+          <input
+            type="datetime-local"
+            id="input-target-date"
+            required
+            class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/15 text-sm text-white focus:outline-none focus:border-[#00f5d4]"
+          />
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="input-sim-day" class="text-xs font-semibold uppercase tracking-wider opacity-80">
+              Kilitli Mesaj Gün Testi
+            </label>
+            <span id="sim-day-display" class="text-xs font-bold text-amber-300">+0 Gün (Bugün)</span>
+          </div>
+          <input type="range" id="input-sim-day" min="0" max="54" value="0" class="w-full accent-rose-400 cursor-pointer" />
+        </div>
+
+        <button
+          type="submit"
+          id="save-settings-btn"
+          class="w-full py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-[#00f5d4] to-[#a3e635] text-slate-950 active:scale-[0.98]"
+        >
+          Önizleme Tarihini Uygula
+        </button>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button
+            type="button"
+            id="test-arrival-btn"
+            class="py-2.5 px-3 rounded-xl font-medium text-xs bg-white/10 hover:bg-white/15 border border-white/10 active:scale-[0.98]"
+          >
+            🎉 Varış Kutlaması Testi
+          </button>
+          <button
+            type="button"
+            id="reset-settings-btn"
+            class="py-2.5 px-3 rounded-xl font-medium text-xs bg-white/10 hover:bg-white/15 border border-white/10 active:scale-[0.98]"
+          >
+            ↺ 15 Ocak 2027'ye Dön
+          </button>
+        </div>
+
+        <div class="pt-2 border-t border-white/10">
+          <span class="block text-xs font-semibold uppercase tracking-wider opacity-80 mb-2">
+            Direkt Paylaşım Linkleri
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button
+              type="button"
+              id="copy-love-link-btn"
+              class="py-2.5 px-3 rounded-xl font-semibold text-xs bg-rose-500/20 hover:bg-rose-500/30 border border-rose-300/35 text-rose-100 active:scale-[0.98]"
+            >
+              ❤️ Sevgili Linki (?mod=sevgili&amp;kilit=1)
+            </button>
+            <button
+              type="button"
+              id="copy-friend-link-btn"
+              class="py-2.5 px-3 rounded-xl font-semibold text-xs bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-300/35 text-emerald-100 active:scale-[0.98]"
+            >
+              🪳 Arkadaş Linki (?mod=arkadas)
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 6. TOAST BİLDİRİM KUTUSU (alert() yerine kullanılır)                  -->
+  <!-- ===================================================================== -->
+  <div id="toast-container" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-[60] max-w-[92vw] pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+    <div id="toast-message" class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-medium backdrop-blur-xl border shadow-2xl bg-slate-950/95 border-white/15 text-white text-center">
+      Hazır!
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 7. UYGULAMA JAVASCRIPT MOTORU (SANDBOX & WEBVIEW %100 GÜVENLİ)        -->
+  <!-- ===================================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      /* =====================================================================
+         1. KOLAY DÜZENLENEBİLİR YAPILANDIRMA (CONFIG)
+         ===================================================================== */
+      const CONFIG = {
+        targetDate: "2027-01-15T00:00:00+03:00",
+        startDate: "2026-11-25T00:00:00+03:00",
+        spotifyTrackUrl: "" // İstersen Spotify track linkini buraya yapıştırabilirsin
+      };
+
+      /* =====================================================================
+         2. GÜVENLİ DEPOLAMA KATMANI (localStorage çökmelerine karşı bellek yedeği)
+         ===================================================================== */
+      const safeStorage = (function () {
+        const mem = {};
+        let canUseNative = false;
+        try {
+          const testKey = "__ankara_storage_test__";
+          window.localStorage.setItem(testKey, "1");
+          window.localStorage.removeItem(testKey);
+          canUseNative = true;
+        } catch (e) {
+          canUseNative = false;
+        }
+
+        return {
+          getItem: function (key) {
+            try {
+              if (canUseNative) {
+                return window.localStorage.getItem(key);
+              }
+            } catch (e) {}
+            return Object.prototype.hasOwnProperty.call(mem, key) ? mem[key] : null;
+          },
+          setItem: function (key, value) {
+            mem[key] = String(value);
+            try {
+              if (canUseNative) {
+                window.localStorage.setItem(key, String(value));
+              }
+            } catch (e) {}
+          },
+          removeItem: function (key) {
+            delete mem[key];
+            try {
+              if (canUseNative) {
+                window.localStorage.removeItem(key);
+              }
+            } catch (e) {}
+          }
+        };
+      })();
+
+      function readJSON(key, fallback) {
+        try {
+          const raw = safeStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+
+      function writeJSON(key, val) {
+        try {
+          safeStorage.setItem(key, JSON.stringify(val));
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         3. NULL-GÜVENLİ DOM YARDIMCISI & SABİT VERİLER
+         ===================================================================== */
+      const $ = function (id) {
+        return document.getElementById(id);
+      };
+
+      const STORAGE_KEYS = {
+        PREVIEW: "ankara_v4_preview",
+        OPENED_DAYS: "ankara_v4_opened_days",
+        MISS_COUNT: "ankara_v4_miss_count",
+        ROACH_SCORE: "ankara_v4_roach_score"
+      };
+
+      // 55 Günlük Kilitli Romantik Mesajlar (25 Kasım 2026 -> 18 Ocak 2027)
+      const DAILY_MESSAGES = [
+        "Geri sayımın ilk günü... Mesafeler ne kadar uzun görünürse görünsün, her günün sonunda kalbim hep senin yanında.",
+        "Bugün takvimden bir yaprak daha eksildi; gözlerine bakacağım ana bir adım daha yaklaştım.",
+        "Ankara'nın ayazı meşhurdur derler ama senin gülüşünü düşününce içim şimdiden ısınıyor.",
+        "Sabah uyandığımda aklıma ilk düşen şey hâlâ senin sesin, senin güzel bakışların.",
+        "Bir şehri güzel yapan sokakları değil, o sokaklarda kimin elini tuttuğundur.",
+        "Bugün kendine çok iyi bak sevgilim, geldiğimde seni sımsıkı kucaklayacağım.",
+        "Aralık kapıda, yeni ay yeni umutlar... Bu ayın sonunda kavuşmamıza neredeyse günler kalmış olacak.",
+        "Bazen kelimeler yetmiyor ama şunu bil: Hayatımın en güzel tesadüfü sensin.",
+        "Şu an aynı gökyüzüne bakıyoruz, birkaç hafta sonra aynı masada kahve içeceğiz.",
+        "Sesini duyduğum her an bütün yorgunluğum bir saniyede siliniyor.",
+        "Sana sarıldığımda zaman biraz yavaşlasın diye şimdiden dilek tutuyorum.",
+        "Mesafe sadece haritada bir çizgi; benim kalbimde yerin hep en yakınımda.",
+        "Bugün biraz yorulduysan gözlerini kapat ve 15 Ocak gecesini hayal et.",
+        "Gülüşün aklıma geldikçe yüzümde istemsiz bir tebessüm beliriyor.",
+        "Sensiz geçen her gün yarım, ama her geçen gün bizi kavuşmaya yaklaştırıyor.",
+        "Seninle susmak bile başkalarıyla saatlerce konuşmaktan daha huzurlu.",
+        "İki haftayı devirdik bile! Takvim hızlı akıyor, kavuşmamız yaklaşıyor.",
+        "Bugün bizim şarkımızı aç ve gözlerini kapat; ben hep yanındayım.",
+        "Bana huzurun ne demek olduğunu öğrettiğin için binlerce kez teşekkür ederim.",
+        "Ankara'ya indiğim an valizi değil, önce seni arayacak gözlerim.",
+        "Soğuk havalarda ellerin üşümesin diye gelince ellerini hiç bırakmayacağım.",
+        "İyi ki varsın, iyi ki benim hikayemin en güzel satırı sensin.",
+        "Yarı yola doğru giderken özlem büyüyor ama kavuşma heyecanı hepsini bastırıyor.",
+        "Bugün aynaya baktığında benim ne kadar şanslı biri olduğumu hatırla.",
+        "Seninle geçireceğim sıradan bir gün bile benim için bayram gibi.",
+        "Yolun yarısına geldik sevgilim! Bundan sonrası yokuş aşağı, koşarak sana geliyorum.",
+        "Kafamı ne zaman dağıtsam dönüp dolaşıp yine sende buluyorum kendimi.",
+        "En güzel anılarımız henüz yaşamadıklarımız... 15 Ocak yeni bir başlangıç olacak.",
+        "Sana her gün yeniden aşık olmak benim en sevdiğim alışkanlığım.",
+        "Geceleri yıldızlara bakarken en parlak olanına senin adını veriyorum.",
+        "Bir kahve, iki sıcak el ve uzun bir yürüyüş... Şimdiden sabırsızlanıyorum.",
+        "Aralık ayının en güzel yanı, Ocak ayına açılan kapı olması.",
+        "Bana verdiğin güç ve sevgi sayesinde her zorluk daha kolay aşılıyor.",
+        "Bugün kalbinden ne geçiyorsa hepsi gerçek olsun, en başta da kavuşmamız.",
+        "Özlemek zor ama seni özlemek bile çok özel, çünkü sonunda sen varsın.",
+        "Yeni yıla sayılı günler kaldı; yeni yılın bana getireceği en güzel hediye sensin.",
+        "Eski yıl bitiyor, özlem dolu günler geride kalıyor. Yeni yılda yan yanayız!",
+        "Hoş geldin Ocak! Artık kavuşmamız aynı ayın, aynı takvim yaprağının içinde.",
+        "İki haftadan az kaldı sevgilim, heyecandan kalbim yerinden çıkacak gibi.",
+        "Bugün yüzün hiç solmasın, çünkü gülünce dünya gerçekten daha güzel oluyor.",
+        "Kalan günler artık iki elin parmaklarını zor geçiyor; zaman bizim için hızlansın.",
+        "Bavula koyacağım en büyük şey, sana biriktirdiğim kocaman özlemim.",
+        "Tek haneli günlere ramak kaldı! Her sabah bir öncekinden daha güzel uyanıyorum.",
+        "Geldiğimde saatlerce konuşup hiçbir yere yetişmek zorunda olmayalım.",
+        "Seni ne kadar sevdiğimi sayılara sığdıramam ama kalan saniyeleri tek tek sayıyorum.",
+        "Sadece birkaç gün kaldı... Kokunu yeniden içime çekeceğim anı düşünüp duruyorum.",
+        "Son bir haftadayız! Kalp atışlarım şimdiden Ankara saatine ayarlandı.",
+        "Artık günler değil, neredeyse saatler konuşuyor. Azıcık daha sabır sevgilim.",
+        "Valiz hazır, kalp hazır, yollar bizi bekliyor.",
+        "Üç gün kaldı... Gözlerimi kapatsam bile kavuşacağımız o anı net görebiliyorum.",
+        "Yarın son bekleyiş! Bugün kalbini kocaman bir huzurla doldur.",
+        "15 OCAK GELDİ! Sonunda Ankara'dayım, sonunda yanındayım sevgilim ❤️",
+        "Kavuşmanın ertesi günü... Yanında olmanın mutluluğu hiçbir şeyle ölçülmez ❤️",
+        "Artık sayaç yok, sadece birlikte biriktireceğimiz güzel anılar var.",
+        "Her günün bir öncekinden daha güzel olsun, iyi ki benimlesin ❤️"
+      ];
+
+      // Arkadaş Modu Trol Mesajları
+      const TROLL_MESSAGES = [
+        "Şaka şaka, 15 Ocak'a kadar bekleyeceksin!",
+        "Zamanı hızlandırayım derken Ankara ayazına 999 gün daha ekledin!",
+        "Zaman makinesini hamamböceği kemirdi, sistem iptal ⚠️🪳",
+        "Işınlanma başarısız: Kabinde kaçak hamamböceği tespit edildi 🪳",
+        "Otogarda 1.80'lik hamamböceğiyle çay içiyoruz, acele etme ☕",
+        "Hızlandırma ücreti: Kızılay'da 2 simit + 1 demli çay 🥨",
+        "Hamamböceği konseyi hızlandırma talebini oy birliğiyle reddetti ⚖️"
+      ];
+
+      // Hamamböceği Konuşma Balonları
+      const ROACH_BUBBLES = [
+        "15 Ocak'ta mekandayız abi",
+        "Beni ezemezsin",
+        "Ankara ayazı yaklaşıyor",
+        "Ödev var mı kral?",
+        "Abi 15 Ocak'ta napıyorsun?",
+        "Bavula sızdım bile 🎒",
+        "Çay koy geliyom ☕",
+        "Terliği bırak konuşalım 🩴"
+      ];
+
+      // Özledim Butonu Tatlı Tepkiler
+      const MISS_REACTIONS = [
+        "Ben de seni çok özledim sevgilim ❤️",
+        "Az kaldı, 15 Ocak yaklaşıyor ✨",
+        "Kalbim şu an Ankara'da atıyor 💓",
+        "Gelince sımsıkı sarılacağım 🌹",
+        "Her dokunuşta mesafe biraz daha eriyor 💌"
+      ];
+
+      // Deniz Seki — Aşk Spotify Kodu (Tam 23 çubuk, 1..8 yükseklik seviyeleri)
+      const SPOTIFY_BAR_LEVELS = [1, 8, 1, 8, 1, 6, 7, 6, 2, 6, 3, 8, 6, 7, 8, 6, 4, 6, 6, 7, 7, 6, 1];
+      const SPOTIFY_LEVEL_HEIGHTS = {
+        1: 18,
+        2: 30,
+        3: 42,
+        4: 54,
+        5: 66,
+        6: 78,
+        7: 90,
+        8: 104
+      };
+
+      /* =====================================================================
+         4. UYGULAMA DURUMU (STATE)
+         ===================================================================== */
+      const state = {
+        theme: "friend",
+        lockedMode: false,
+        targetDate: new Date(CONFIG.targetDate),
+        startDate: new Date(CONFIG.startDate),
+        spotifyTrackUrl: CONFIG.spotifyTrackUrl,
+        simDayOffset: 0,
+        selectedDayIndex: 0,
+        calendarExpanded: true,
+        isArrived: false,
+        arrivalTriggeredOnce: false,
+        isTrolling: false,
+        trollIndex: 0,
+        lastDigits: { days: "", hours: "", minutes: "", seconds: "" },
+        deferredInstallPrompt: null,
+        activeRoaches: 0
+      };
+
+      /* =====================================================================
+         5. TOAST VE YARDIMCI FONKSİYONLAR
+         ===================================================================== */
+      let toastTimer = null;
+      function showToast(message, duration) {
+        try {
+          const box = $("toast-container");
+          const msgEl = $("toast-message");
+          if (!box || !msgEl) return;
+          msgEl.textContent = message;
+          box.classList.remove("opacity-0", "translate-y-3");
+          box.classList.add("opacity-100", "translate-y-0");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () {
+            box.classList.add("opacity-0", "translate-y-3");
+            box.classList.remove("opacity-100", "translate-y-0");
+          }, duration || 3000);
+        } catch (e) {}
+      }
+
+      function padZero(n) {
+        return String(Math.max(0, Math.floor(n))).padStart(2, "0");
+      }
+
+      function getEffectiveNowMs() {
+        return Date.now() + state.simDayOffset * 86400000;
+      }
+
+      function formatDatetimeLocal(dt) {
+        return (
+          dt.getFullYear() + "-" +
+          padZero(dt.getMonth() + 1) + "-" +
+          padZero(dt.getDate()) + "T" +
+          padZero(dt.getHours()) + ":" +
+          padZero(dt.getMinutes())
+        );
+      }
+
+      function formatTurkishTargetDate(dt) {
+        try {
+          const formatted = new Intl.DateTimeFormat("tr-TR", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          }).format(dt);
+          return "Hedef: Ankara • " + formatted;
+        } catch (e) {
+          return "Hedef: Ankara • 15 Oca 2027";
+        }
+      }
+
+      function formatShortTurkishDay(dayIdx) {
+        try {
+          const dt = new Date(state.startDate.getTime() + dayIdx * 86400000);
+          return new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "short" }).format(dt);
+        } catch (e) {
+          return "Gün " + (dayIdx + 1);
+        }
+      }
+
+      function copyToClipboardSafe(text) {
+        let ok = false;
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+        } catch (e) {
+          ok = false;
+        }
+        return ok;
+      }
+
+      function buildShareLink(query) {
+        try {
+          const origin = window.location.origin;
+          const path = window.location.pathname;
+          if (origin && origin !== "null" && origin.indexOf("http") === 0) {
+            return origin + path + "?" + query;
+          }
+        } catch (e) {}
+        return "https://kullaniciadi.github.io/ankara-sayac/?" + query;
+      }
+
+      /* =====================================================================
+         6. PWA MANİFEST & SVG İKON (TAMAMEN TRY/CATCH KORUMALI)
+         ===================================================================== */
+      function initPWAAssets() {
+        try {
+          const svg =
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">' +
+            '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#070b14"/><stop offset="100%" stop-color="#2b0c1a"/></linearGradient></defs>' +
+            '<rect width="192" height="192" rx="44" fill="url(#g)"/>' +
+            '<text x="96" y="88" font-family="sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">15 OCA</text>' +
+            '<text x="96" y="128" font-family="sans-serif" font-size="22" font-weight="600" fill="#f4a7b9" text-anchor="middle">ANKARA</text>' +
+            "</svg>";
+          const dataUrl = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+          const fav = $("dynamic-favicon");
+          const apple = $("dynamic-apple-icon");
+          if (fav) fav.href = dataUrl;
+          if (apple) apple.href = dataUrl;
+
+          const manifestObj = {
+            name: "Ankara'ya Geri Sayım — 15 Ocak 2027",
+            short_name: "Ankara Sayaç",
+            start_url: ".",
+            display: "standalone",
+            background_color: "#070b14",
+            theme_color: "#070b14",
+            lang: "tr"
+          };
+          const blob = new Blob([JSON.stringify(manifestObj)], { type: "application/manifest+json" });
+          const manifestUrl = URL.createObjectURL(blob);
+          const manifestEl = $("dynamic-manifest");
+          if (manifestEl) manifestEl.href = manifestUrl;
+        } catch (e) {
+          // Sandboxed iframe içinde Blob/Manifest kısıtlanabilir; sessizce geç
+        }
+      }
+
+      /* =====================================================================
+         7. ARKA PLAN CANVAS MOTORU (ARKADAŞ: NEON GRID | SEVGİLİ: KALP & BOKEH)
+         ===================================================================== */
+      const particleEngine = (function () {
+        let canvas = $("bg-canvas");
+        let ctx = null;
+        let width = window.innerWidth || 360;
+        let height = window.innerHeight || 640;
+        let currentTheme = "friend";
+        let gridOffset = 0;
+        const ambient = [];
+        const bursts = [];
+        let running = false;
+
+        try {
+          if (canvas && canvas.getContext) {
+            ctx = canvas.getContext("2d");
+          }
+        } catch (e) {
+          ctx = null;
+        }
+
+        function resize() {
+          if (!canvas || !ctx) return;
+          try {
+            width = window.innerWidth || 360;
+            height = window.innerHeight || 640;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.floor(width * dpr);
+            canvas.height = Math.floor(height * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          } catch (e) {}
+        }
+
+        function initAmbient() {
+          ambient.length = 0;
+          const count = width < 640 ? 20 : 34;
+          for (let i = 0; i < count; i++) {
+            ambient.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              size: Math.random() * 6 + 3,
+              speedY: -(Math.random() * 0.4 + 0.14),
+              speedX: (Math.random() - 0.5) * 0.25,
+              alpha: Math.random() * 0.32 + 0.1,
+              phase: Math.random() * Math.PI * 2,
+              isHeart: Math.random() > 0.42
+            });
+          }
+        }
+
+        function drawHeart(x, y, size, color, alpha, rot) {
+          if (!ctx) return;
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.rotate(rot || 0);
+          ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          const s = size * 0.5;
+          ctx.moveTo(0, s * 0.4);
+          ctx.bezierCurveTo(0, -s * 0.3, -s, -s * 0.3, -s, s * 0.3);
+          ctx.bezierCurveTo(-s, s * 0.9, 0, s * 1.35, 0, s * 1.7);
+          ctx.bezierCurveTo(0, s * 1.35, s, s * 0.9, s, s * 0.3);
+          ctx.bezierCurveTo(s, -s * 0.3, 0, -s * 0.3, 0, s * 0.4);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        function spawnHeartBurst(originX, originY, count) {
+          const colors = ["#f4a7b9", "#ffd1dc", "#fb7185", "#f43f5e", "#fde68a"];
+          const total = count || 20;
+          for (let i = 0; i < total; i++) {
+            const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.65;
+            const speed = Math.random() * 3.8 + 1.8;
+            bursts.push({
+              type: "heart",
+              x: originX + (Math.random() - 0.5) * 30,
+              y: originY,
+              vx: Math.cos(angle) * speed,
+              vy: Math.sin(angle) * speed - 0.9,
+              gravity: 0.032,
+              size: Math.random() * 11 + 7,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              alpha: 1,
+              decay: Math.random() * 0.011 + 0.008,
+              rotation: (Math.random() - 0.5) * 0.5,
+              vRot: (Math.random() - 0.5) * 0.04
+            });
+          }
+        }
+
+        function triggerCelebration(theme) {
+          const isLove = theme === "love";
+          const total = width < 640 ? 44 : 76;
+          const colors = isLove
+            ? ["#f4a7b9", "#ffd1dc", "#fb7185", "#fda4af", "#ffffff"]
+            : ["#00f5d4", "#a3e635", "#38bdf8", "#d9f99d", "#ffffff"];
+
+          for (let i = 0; i < total; i++) {
+            bursts.push({
+              type: isLove ? "heart" : "confetti",
+              x: width * (0.12 + Math.random() * 0.76),
+              y: height * (0.28 + Math.random() * 0.28),
+              vx: (Math.random() - 0.5) * 7.2,
+              vy: -(Math.random() * 6.2 + 2.8),
+              gravity: isLove ? 0.045 : 0.1,
+              size: isLove ? Math.random() * 12 + 8 : Math.random() * 7 + 4,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              alpha: 1,
+              decay: Math.random() * 0.008 + 0.005,
+              rotation: Math.random() * Math.PI * 2,
+              vRot: (Math.random() - 0.5) * 0.14
+            });
+          }
+        }
+
+        function drawGrid() {
+          const spacing = width < 640 ? 38 : 48;
+          gridOffset = (gridOffset + 0.22) % spacing;
+          ctx.save();
+          ctx.strokeStyle = "rgba(0, 245, 212, 0.055)";
+          ctx.lineWidth = 1;
+          for (let x = 0; x <= width; x += spacing) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+            ctx.stroke();
+          }
+          for (let y = gridOffset; y <= height; y += spacing) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        function loop() {
+          if (!ctx) return;
+          try {
+            ctx.clearRect(0, 0, width, height);
+            if (currentTheme === "friend") {
+              drawGrid();
+            }
+
+            for (let i = 0; i < ambient.length; i++) {
+              const p = ambient[i];
+              p.phase += 0.015;
+              p.y += p.speedY;
+              p.x += p.speedX + Math.sin(p.phase) * 0.18;
+
+              if (p.y < -20) {
+                p.y = height + 20;
+                p.x = Math.random() * width;
+              }
+              if (p.x < -20) p.x = width + 20;
+              if (p.x > width + 20) p.x = -20;
+
+              if (currentTheme === "love") {
+                if (p.isHeart) {
+                  drawHeart(p.x, p.y, p.size * 1.4, "#f4a7b9", p.alpha * 0.72, Math.sin(p.phase) * 0.2);
+                } else {
+                  ctx.save();
+                  ctx.globalAlpha = p.alpha * 0.45;
+                  const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2.8);
+                  grad.addColorStop(0, "rgba(255, 209, 220, 0.9)");
+                  grad.addColorStop(1, "rgba(244, 167, 185, 0)");
+                  ctx.fillStyle = grad;
+                  ctx.beginPath();
+                  ctx.arc(p.x, p.y, p.size * 2.8, 0, Math.PI * 2);
+                  ctx.fill();
+                  ctx.restore();
+                }
+              } else {
+                ctx.save();
+                ctx.globalAlpha = p.alpha * 0.72;
+                ctx.fillStyle = i % 3 === 0 ? "#a3e635" : "#00f5d4";
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size * 0.28, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+              }
+            }
+
+            for (let i = bursts.length - 1; i >= 0; i--) {
+              const b = bursts[i];
+              b.x += b.vx;
+              b.y += b.vy;
+              b.vy += b.gravity;
+              b.vx *= 0.99;
+              b.rotation += b.vRot;
+              b.alpha -= b.decay;
+
+              if (b.alpha <= 0 || b.y > height + 40) {
+                bursts.splice(i, 1);
+                continue;
+              }
+
+              if (b.type === "heart") {
+                drawHeart(b.x, b.y, b.size, b.color, b.alpha, b.rotation);
+              } else {
+                ctx.save();
+                ctx.translate(b.x, b.y);
+                ctx.rotate(b.rotation);
+                ctx.globalAlpha = b.alpha;
+                ctx.fillStyle = b.color;
+                ctx.fillRect(-b.size / 2, -b.size / 4, b.size, b.size * 0.55);
+                ctx.restore();
+              }
+            }
+          } catch (e) {}
+          requestAnimationFrame(loop);
+        }
+
+        return {
+          start: function () {
+            if (running || !ctx) return;
+            running = true;
+            resize();
+            initAmbient();
+            window.addEventListener("resize", resize);
+            requestAnimationFrame(loop);
+          },
+          setTheme: function (theme) {
+            currentTheme = theme;
+          },
+          spawnHeartBurst: spawnHeartBurst,
+          triggerCelebration: triggerCelebration
+        };
+      })();
+
+      /* =====================================================================
+         8. TAKVİME EKLE (.ICS İNDİRME — SANDBOX FALLBACK İLE)
+         ===================================================================== */
+      function downloadICSFile() {
+        try {
+          const isLove = state.theme === "love";
+          const startMs = state.targetDate.getTime();
+          const endMs = startMs + 3 * 3600000;
+
+          function toUTC(ms) {
+            const d = new Date(ms);
+            return (
+              d.getUTCFullYear() +
+              padZero(d.getUTCMonth() + 1) +
+              padZero(d.getUTCDate()) +
+              "T" +
+              padZero(d.getUTCHours()) +
+              padZero(d.getUTCMinutes()) +
+              padZero(d.getUTCSeconds()) +
+              "Z"
+            );
+          }
+
+          const title = isLove
+            ? "Ankara'ya Kavuşma Günü ❤️"
+            : "Ankara'ya Geliş — Abi 15 Ocak'ta Napıyorsun? 🪳";
+          const desc = isLove
+            ? "Beklenen an geldi! 15 Ocak'ta Ankara'da kavuşuyoruz."
+            : "15 Ocak Ankara dönüşü! Planları hazırlayın.";
+
+          const content = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//Ankara Sayac//TR",
+            "BEGIN:VEVENT",
+            "UID:ankara-2027-" + Date.now() + "@ankara-sayac",
+            "DTSTAMP:" + toUTC(Date.now()),
+            "DTSTART:" + toUTC(startMs),
+            "DTEND:" + toUTC(endMs),
+            "SUMMARY:" + title,
+            "DESCRIPTION:" + desc,
+            "LOCATION:Ankara, Türkiye",
+            "END:VEVENT",
+            "END:VCALENDAR"
+          ].join("\r\n");
+
+          const blob = new Blob([content], { type: "text/calendar;charset=utf-8" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = isLove ? "ankara-kavusma-15-ocak.ics" : "ankara-15-ocak-plani.ics";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () {
+            try { URL.revokeObjectURL(url); } catch (e) {}
+          }, 1200);
+
+          showToast(isLove ? "15 Ocak kavuşma günü takvimine indirildi ❤️" : "15 Ocak takvim dosyası indirildi 📅");
+        } catch (e) {
+          showToast("Önizleme penceresi dosya indirmeyi kısıtlıyor — GitHub Pages'te tek tıkla iner 📅", 3600);
+        }
+      }
+
+      /* =====================================================================
+         9. SEVGİLİ MODU: SPOTIFY KODU (23 ÇUBUK) & GÖMÜLÜ OYNATICI
+         ===================================================================== */
+      function renderSpotifyBars(groupEl) {
+        if (!groupEl) return;
+        try {
+          groupEl.innerHTML = "";
+          const ns = "http://www.w3.org/2000/svg";
+          const startX = 162;
+          const step = 20;
+          const barWidth = 9;
+          const centerY = 80;
+
+          for (let i = 0; i < SPOTIFY_BAR_LEVELS.length; i++) {
+            const level = SPOTIFY_BAR_LEVELS[i];
+            const h = SPOTIFY_LEVEL_HEIGHTS[level] || 18;
+            const rect = document.createElementNS(ns, "rect");
+            rect.setAttribute("x", String(startX + i * step));
+            rect.setAttribute("y", String(centerY - h / 2));
+            rect.setAttribute("width", String(barWidth));
+            rect.setAttribute("height", String(h));
+            rect.setAttribute("rx", "4.5");
+            groupEl.appendChild(rect);
+          }
+        } catch (e) {}
+      }
+
+      function parseSpotifyEmbed(url) {
+        if (!url || typeof url !== "string") return null;
+        const m = url.trim().match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|album|playlist)\/([a-zA-Z0-9]+)/i);
+        if (!m) return null;
+        return "https://open.spotify.com/embed/" + m[1].toLowerCase() + "/" + m[2] + "?utm_source=generator&theme=0";
+      }
+
+      function updateSpotifyUI() {
+        try {
+          const inputEl = $("inline-spotify-url");
+          const embedBox = $("spotify-embed-container");
+          const openLink = $("spotify-open-link");
+          const openLabel = $("spotify-open-label");
+          if (inputEl) inputEl.value = state.spotifyTrackUrl || "";
+
+          const embedUrl = parseSpotifyEmbed(state.spotifyTrackUrl);
+          if (embedUrl && embedBox) {
+            embedBox.innerHTML =
+              '<iframe style="border-radius:14px" src="' +
+              embedUrl +
+              '" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+            embedBox.style.display = "block";
+            if (openLink) openLink.href = state.spotifyTrackUrl.trim();
+            if (openLabel) openLabel.textContent = "Spotify'da Dinle";
+          } else {
+            if (embedBox) {
+              embedBox.innerHTML = "";
+              embedBox.style.display = "none";
+            }
+            if (openLink) openLink.href = "https://open.spotify.com/search/Deniz%20Seki%20A%C5%9Fk";
+            if (openLabel) openLabel.textContent = "Spotify'da Aç";
+          }
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         10. SEVGİLİ MODU: 55 GÜNLÜK KİLİTLİ MESAJ SİSTEMİ
+         ===================================================================== */
+      function getTodayDayIndex() {
+        const diff = getEffectiveNowMs() - state.startDate.getTime();
+        const raw = Math.floor(diff / 86400000);
+        return Math.max(0, Math.min(DAILY_MESSAGES.length - 1, raw));
+      }
+
+      function renderDailyMessage(dayIdx) {
+        try {
+          const todayIdx = getTodayDayIndex();
+          const safeIdx = Math.max(0, Math.min(todayIdx, dayIdx));
+          state.selectedDayIndex = safeIdx;
+
+          const openedMap = readJSON(STORAGE_KEYS.OPENED_DAYS, {});
+          const isToday = safeIdx === todayIdx;
+          const isOpened = Boolean(openedMap[safeIdx]) || !isToday;
+
+          const badge = $("daily-day-badge");
+          if (badge) badge.textContent = (safeIdx + 1) + ". Gün • " + formatShortTurkishDay(safeIdx);
+
+          const sealedView = $("envelope-sealed-view");
+          const openedView = $("envelope-opened-view");
+          const metaEl = $("opened-msg-meta");
+          const textEl = $("opened-msg-text");
+          const sealedTitle = $("envelope-sealed-title");
+
+          if (isOpened) {
+            if (sealedView) sealedView.style.display = "none";
+            if (openedView) {
+              openedView.style.display = "flex";
+              openedView.classList.remove("animate-envelopeReveal");
+              void openedView.offsetWidth;
+              openedView.classList.add("animate-envelopeReveal");
+            }
+            if (metaEl) {
+              metaEl.textContent = isToday
+                ? "BUGÜNÜN NOTU (" + (safeIdx + 1) + ". GÜN)"
+                : (safeIdx + 1) + ". GÜN • " + formatShortTurkishDay(safeIdx).toUpperCase();
+            }
+            if (textEl) textEl.textContent = '"' + DAILY_MESSAGES[safeIdx] + '"';
+          } else {
+            if (openedView) openedView.style.display = "none";
+            if (sealedView) sealedView.style.display = "flex";
+            if (sealedTitle) sealedTitle.textContent = (safeIdx + 1) + ". Günün Mesajı Seni Bekliyor";
+          }
+
+          renderDailyCalendarGrid();
+        } catch (e) {}
+      }
+
+      function renderDailyCalendarGrid() {
+        try {
+          const grid = $("daily-calendar-grid");
+          const badge = $("unlocked-count-badge");
+          if (!grid) return;
+
+          const todayIdx = getTodayDayIndex();
+          const totalDays = DAILY_MESSAGES.length;
+          if (badge) badge.textContent = (todayIdx + 1) + " / " + totalDays + " açık";
+
+          grid.innerHTML = "";
+          for (let i = 0; i < totalDays; i++) {
+            const isUnlocked = i <= todayIdx;
+            const isSelected = i === state.selectedDayIndex;
+            const isToday = i === todayIdx;
+
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.setAttribute("data-day-index", String(i));
+
+            if (isUnlocked) {
+              btn.className = isSelected
+                ? "flex flex-col items-center justify-center py-2 px-1 rounded-xl text-xs font-bold bg-gradient-to-br from-[#ffd1dc] to-[#f4a7b9] text-[#1a0710] shadow-md transition-all active:scale-95"
+                : "flex flex-col items-center justify-center py-2 px-1 rounded-xl text-xs font-semibold bg-[#f4a7b9]/15 hover:bg-[#f4a7b9]/25 text-[#ffd1dc] border border-[#f4a7b9]/30 transition-all active:scale-95";
+              btn.innerHTML =
+                '<span class="text-[11px] leading-tight">' + (isToday ? "✨" : "💌") + " " + (i + 1) + "</span>" +
+                '<span class="text-[9px] opacity-80 mt-0.5">' + formatShortTurkishDay(i) + "</span>";
+            } else {
+              btn.className =
+                "flex flex-col items-center justify-center py-2 px-1 rounded-xl text-xs font-medium bg-white/5 text-[#f4a7b9]/45 border border-white/10 transition-all active:scale-95";
+              btn.innerHTML =
+                '<span class="text-[11px] leading-tight">🔒 ' + (i + 1) + "</span>" +
+                '<span class="text-[9px] opacity-65 mt-0.5">' + formatShortTurkishDay(i) + "</span>";
+            }
+
+            grid.appendChild(btn);
+          }
+        } catch (e) {}
+      }
+
+      function updateMidnightTimer() {
+        try {
+          const el = $("next-message-timer");
+          if (!el) return;
+          const now = new Date(getEffectiveNowMs());
+          const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+          const diff = Math.max(0, midnight.getTime() - now.getTime());
+          const h = Math.floor(diff / 3600000);
+          const m = Math.floor((diff % 3600000) / 60000);
+          const s = Math.floor((diff % 60000) / 1000);
+          el.textContent = padZero(h) + ":" + padZero(m) + ":" + padZero(s);
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         11. SEVGİLİ MODU: ÖZLEDİM SAYACI
+         ===================================================================== */
+      function getMissCount() {
+        const val = parseInt(readJSON(STORAGE_KEYS.MISS_COUNT, 0), 10);
+        return isNaN(val) ? 0 : Math.max(0, val);
+      }
+
+      function updateMissUI(showReaction) {
+        try {
+          const count = getMissCount();
+          const counterEl = $("miss-you-counter");
+          const reactEl = $("miss-you-reaction");
+          if (counterEl) {
+            counterEl.textContent =
+              count === 0
+                ? "Özlediğinde dokun, kalpler sana gelsin"
+                : "Toplam " + count + " kez özledim ❤️";
+          }
+          if (reactEl && showReaction && count > 0) {
+            reactEl.textContent = MISS_REACTIONS[(count - 1) % MISS_REACTIONS.length];
+          }
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         12. ARKADAŞ MODU: HAMAMBÖCEĞİ MİNİ-OYUNU & TROL MOTORU
+         ===================================================================== */
+      function getRoachScore() {
+        const val = parseInt(readJSON(STORAGE_KEYS.ROACH_SCORE, 0), 10);
+        return isNaN(val) ? 0 : Math.max(0, val);
+      }
+
+      function getRoachRank(score) {
+        if (score >= 30) return "Hamamböceği İmparatoru 👑";
+        if (score >= 15) return "Profesyonel Avcı 🎖️";
+        if (score >= 5) return "Sincan İlaçlama 🩴";
+        return "Çaylak 🪳";
+      }
+
+      function updateRoachScoreUI(score, justCaught) {
+        try {
+          const scoreEl = $("roach-score");
+          const rankEl = $("roach-rank-badge");
+          const commentEl = $("roach-comment-text");
+          const rank = getRoachRank(score);
+
+          if (scoreEl) scoreEl.textContent = String(score);
+          if (rankEl) rankEl.textContent = rank;
+
+          if (justCaught && commentEl) {
+            if (score === 1) {
+              commentEl.textContent = "İlk hamamböceği yakalandı! Ankara ayazına 1 adım daha yakınsın 🪳";
+            } else if (score === 5) {
+              commentEl.textContent = "Rütbe atladın: Sincan İlaçlama 🩴 — 15 Ocak ekibi gururlu!";
+            } else if (score === 15) {
+              commentEl.textContent = "15 skor! Yeni rütbe: Profesyonel Avcı 🎖️";
+            } else if (score === 30) {
+              commentEl.textContent = "30 hamamböceği! Artık Hamamböceği İmparatoru sensin 👑";
+            } else {
+              commentEl.textContent = "💥 Tam isabet! Skor: " + score + " (" + rank + ")";
+            }
+          }
+        } catch (e) {}
+      }
+
+      function buildCockroachSVG() {
+        return (
+          '<svg viewBox="0 0 64 64" class="w-12 h-12 sm:w-14 sm:h-14 drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)]" aria-hidden="true">' +
+          '<path class="roach-antenna-l" d="M28 17 C22 8, 13 5, 8 4" fill="none" stroke="#8b5a2b" stroke-width="2" stroke-linecap="round"/>' +
+          '<path class="roach-antenna-r" d="M36 17 C42 8, 51 5, 56 4" fill="none" stroke="#8b5a2b" stroke-width="2" stroke-linecap="round"/>' +
+          '<g class="roach-leg-l" stroke="#5c3317" stroke-width="2.2" stroke-linecap="round" fill="none">' +
+          '<path d="M24 27 L12 22 L8 17"/><path d="M23 36 L10 36 L6 40"/><path d="M25 46 L13 52 L10 58"/>' +
+          "</g>" +
+          '<g class="roach-leg-r" stroke="#5c3317" stroke-width="2.2" stroke-linecap="round" fill="none">' +
+          '<path d="M40 27 L52 22 L56 17"/><path d="M41 36 L54 36 L58 40"/><path d="M39 46 L51 52 L54 58"/>' +
+          "</g>" +
+          '<ellipse cx="32" cy="39" rx="11.5" ry="17" fill="#6b3416" stroke="#3b1a09" stroke-width="1.8"/>' +
+          '<ellipse cx="32" cy="40" rx="8.5" ry="13.5" fill="#82421d"/>' +
+          '<line x1="32" y1="27" x2="32" y2="54" stroke="#45200c" stroke-width="1.4"/>' +
+          '<ellipse cx="32" cy="21" rx="7.5" ry="5.5" fill="#4f240e" stroke="#2d1306" stroke-width="1.4"/>' +
+          '<circle cx="29" cy="18.5" r="1.4" fill="#a3e635"/>' +
+          '<circle cx="35" cy="18.5" r="1.4" fill="#a3e635"/>' +
+          "</svg>"
+        );
+      }
+
+      function spawnCockroach(fastSprint) {
+        try {
+          const layer = $("roach-layer");
+          if (!layer || state.activeRoaches >= 14) return;
+          state.activeRoaches++;
+
+          const vw = window.innerWidth || 360;
+          const vh = window.innerHeight || 640;
+          const fromLeft = Math.random() > 0.5;
+          const startX = fromLeft ? -70 : vw + 70;
+          const endX = fromLeft ? vw + 90 : -90;
+          const startY = 90 + Math.random() * Math.max(120, vh - 220);
+          const endY = 90 + Math.random() * Math.max(120, vh - 220);
+
+          const wrap = document.createElement("div");
+          wrap.className = "fixed top-0 left-0 pointer-events-auto cursor-pointer select-none";
+          wrap.style.touchAction = "manipulation";
+          wrap.style.willChange = "transform";
+
+          const bubble = document.createElement("div");
+          bubble.className =
+            "absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-xl bg-slate-950/92 border border-[#a3e635]/60 text-[11px] font-bold text-[#d9f99d] shadow-lg pointer-events-none";
+          bubble.textContent = ROACH_BUBBLES[Math.floor(Math.random() * ROACH_BUBBLES.length)];
+
+          const svgWrap = document.createElement("div");
+          svgWrap.className = "p-1.5";
+          svgWrap.innerHTML = buildCockroachSVG();
+          const angleDeg = (Math.atan2(endY - startY, endX - startX) * 180) / Math.PI + 90;
+          svgWrap.style.transform = "rotate(" + angleDeg + "deg)";
+
+          wrap.appendChild(bubble);
+          wrap.appendChild(svgWrap);
+          layer.appendChild(wrap);
+
+          const duration = fastSprint ? 2000 + Math.random() * 800 : 4600 + Math.random() * 2800;
+          const wobbleAmp = 14 + Math.random() * 20;
+          const wobbleFreq = 0.006 + Math.random() * 0.004;
+          const t0 = performance.now();
+          let caught = false;
+          let rafId = null;
+
+          function animateRoach(now) {
+            if (caught || !wrap.parentNode) return;
+            const p = (now - t0) / duration;
+            if (p >= 1) {
+              wrap.remove();
+              state.activeRoaches = Math.max(0, state.activeRoaches - 1);
+              return;
+            }
+            const x = startX + (endX - startX) * p;
+            const y = startY + (endY - startY) * p + Math.sin((now - t0) * wobbleFreq) * wobbleAmp;
+            wrap.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+            rafId = requestAnimationFrame(animateRoach);
+          }
+
+          function handleCatch(e) {
+            if (e) e.stopPropagation();
+            if (caught) return;
+            caught = true;
+            if (rafId) cancelAnimationFrame(rafId);
+
+            const nextScore = getRoachScore() + 1;
+            writeJSON(STORAGE_KEYS.ROACH_SCORE, nextScore);
+            updateRoachScoreUI(nextScore, true);
+
+            bubble.textContent = "💥 YAKALANDI!";
+            bubble.className =
+              "absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-xl bg-[#00f5d4] text-slate-950 text-[11px] font-extrabold shadow-lg pointer-events-none";
+            svgWrap.classList.add("roach-squished");
+
+            try { if (navigator.vibrate) navigator.vibrate(20); } catch (err) {}
+
+            setTimeout(function () {
+              if (wrap.parentNode) wrap.remove();
+              state.activeRoaches = Math.max(0, state.activeRoaches - 1);
+            }, 420);
+          }
+
+          wrap.addEventListener("pointerdown", handleCatch);
+          wrap.addEventListener("click", handleCatch);
+          rafId = requestAnimationFrame(animateRoach);
+        } catch (e) {}
+      }
+
+      function clearAllRoaches() {
+        try {
+          const layer = $("roach-layer");
+          if (layer) layer.innerHTML = "";
+          state.activeRoaches = 0;
+        } catch (e) {}
+      }
+
+      function triggerTrollSpeedUp() {
+        if (state.isTrolling || state.isArrived) return;
+        state.isTrolling = true;
+
+        const btn = $("troll-speed-btn");
+        const grid = $("countdown-grid");
+        const alertBox = $("troll-alert-box");
+
+        if (btn) {
+          btn.disabled = true;
+          btn.classList.add("opacity-70");
+        }
+        if (grid) grid.classList.add("animate-glitchShake");
+
+        // Ekrana hızlı koşan hamamböcekleri sal
+        for (let i = 0; i < 4; i++) {
+          setTimeout(function () {
+            spawnCockroach(true);
+          }, i * 220);
+        }
+
+        let fakeDays = Math.max(15, parseInt(($("cd-days") && $("cd-days").textContent) || "45", 10) || 45);
+        let fakeHours = 23;
+        let fakeMins = 59;
+        let fakeSecs = 59;
+
+        const spinId = setInterval(function () {
+          fakeSecs -= 7;
+          if (fakeSecs < 0) { fakeSecs = 59; fakeMins -= 9; }
+          if (fakeMins < 0) { fakeMins = 59; fakeHours -= 3; }
+          if (fakeHours < 0) { fakeHours = 23; fakeDays = Math.max(0, fakeDays - 2); }
+
+          if ($("cd-days")) $("cd-days").textContent = padZero(fakeDays);
+          if ($("cd-hours")) $("cd-hours").textContent = padZero(fakeHours);
+          if ($("cd-minutes")) $("cd-minutes").textContent = padZero(fakeMins);
+          if ($("cd-seconds")) $("cd-seconds").textContent = padZero(fakeSecs);
+        }, 55);
+
+        // 1.7 sn sonra +999 GÜN trol şoku
+        setTimeout(function () {
+          clearInterval(spinId);
+          if ($("cd-days")) $("cd-days").textContent = "+999";
+          if ($("cd-hours")) $("cd-hours").textContent = "99";
+          if ($("cd-minutes")) $("cd-minutes").textContent = "99";
+          if ($("cd-seconds")) $("cd-seconds").textContent = "99";
+
+          const msg = TROLL_MESSAGES[state.trollIndex % TROLL_MESSAGES.length];
+          state.trollIndex++;
+          showToast(msg, 3800);
+          if (alertBox) {
+            alertBox.textContent = "🪳 " + msg;
+            alertBox.classList.remove("hidden");
+          }
+
+          setTimeout(function () {
+            if (grid) grid.classList.remove("animate-glitchShake");
+            state.isTrolling = false;
+            state.lastDigits = { days: "", hours: "", minutes: "", seconds: "" };
+            if (btn) {
+              btn.disabled = false;
+              btn.classList.remove("opacity-70");
+            }
+            updateCountdown();
+          }, 950);
+        }, 1700);
+      }
+
+      /* =====================================================================
+         13. TEMA & EKRAN GEÇİŞ MOTORU (KESİN display: none / block / flex)
+         ===================================================================== */
+      function enterMode(mode) {
+        applyTheme(mode);
+
+        const entry = $("entry-screen");
+        const app = $("app-screen");
+        if (entry) entry.style.display = "none";
+        if (app) app.style.display = "block";
+
+        try {
+          window.scrollTo(0, 0);
+        } catch (e) {}
+
+        updateCountdown();
+
+        if (mode === "love") {
+          particleEngine.spawnHeartBurst((window.innerWidth || 360) / 2, (window.innerHeight || 640) * 0.4, 18);
+        }
+      }
+
+      function returnToEntry() {
+        clearAllRoaches();
+        const entry = $("entry-screen");
+        const app = $("app-screen");
+        if (app) app.style.display = "none";
+        if (entry) entry.style.display = "flex";
+        try {
+          window.scrollTo(0, 0);
+        } catch (e) {}
+      }
+
+      function applyTheme(mode) {
+        state.theme = mode === "love" ? "love" : "friend";
+        const isLove = state.theme === "love";
+
+        const body = $("app-body");
+        const bgLayer = $("theme-bg-layer");
+        const metaTheme = $("theme-color-meta");
+
+        if (body) {
+          body.classList.toggle("font-loveBody", isLove);
+          body.classList.toggle("font-friendBody", !isLove);
+          body.style.backgroundColor = isLove ? "#1a0710" : "#070b14";
+        }
+        if (metaTheme) metaTheme.setAttribute("content", isLove ? "#1a0710" : "#070b14");
+
+        if (bgLayer) {
+          bgLayer.className = isLove
+            ? "transition-all duration-700 bg-[radial-gradient(ellipse_at_top,_rgba(244,167,185,0.22),_transparent_56%),radial-gradient(ellipse_at_bottom_left,_rgba(255,209,220,0.14),_transparent_52%),linear-gradient(155deg,_#1a0710_0%,_#2b0c1a_52%,_#1a0710_100%)]"
+            : "transition-all duration-700 bg-[radial-gradient(ellipse_at_top,_rgba(0,245,212,0.14),_transparent_56%),radial-gradient(ellipse_at_bottom_right,_rgba(163,230,53,0.12),_transparent_52%),linear-gradient(180deg,_#070b14_0%,_#0d1424_100%)]";
+        }
+
+        if (isLove) clearAllRoaches();
+
+        // Üst Navigasyon Stilleri
+        const navBadge = $("nav-active-badge");
+        const switchBtn = $("instant-switch-btn");
+        const switchText = $("instant-switch-text");
+        if (navBadge) {
+          navBadge.textContent = isLove ? "❤️ Sevgili Modu" : "🪳 Arkadaş Modu";
+          navBadge.className = isLove
+            ? "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border bg-[#f4a7b9]/15 border-[#f4a7b9]/35 text-[#ffd1dc] truncate"
+            : "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border bg-[#00f5d4]/15 border-[#00f5d4]/35 text-[#00f5d4] truncate";
+        }
+        if (switchBtn && switchText) {
+          switchText.textContent = isLove ? "Arkadaş Modu 🪳" : "Sevgili Modu ❤️";
+          switchBtn.className = isLove
+            ? "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all active:scale-95 shrink-0 bg-[#0d1424]/80 border-[#00f5d4]/40 text-[#00f5d4]"
+            : "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold border transition-all active:scale-95 shrink-0 bg-[#2b0c1a]/90 border-[#f4a7b9]/45 text-[#ffd1dc]";
+        }
+
+        // Üst Rozet & Başlıklar
+        const headerBadge = $("header-badge");
+        const headerIcon = $("header-badge-icon");
+        const headerText = $("header-badge-text");
+        const mainTitle = $("main-title");
+        const mainSubtitle = $("main-subtitle");
+
+        if (headerBadge && headerIcon && headerText) {
+          if (isLove) {
+            headerBadge.className =
+              "inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.2em] uppercase mb-4 backdrop-blur-md border bg-[#f4a7b9]/15 border-[#f4a7b9]/35 text-[#ffd1dc]";
+            headerIcon.innerHTML = '<span class="text-xs leading-none animate-heartBeat">❤️</span>';
+            headerText.textContent = "SANA DOĞRU • ANKARA";
+          } else {
+            headerBadge.className =
+              "inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4 backdrop-blur-md border bg-[#00f5d4]/10 border-[#00f5d4]/40 text-[#00f5d4]";
+            headerIcon.innerHTML =
+              '<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5d4] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00f5d4]"></span>';
+            headerText.textContent = "ANKARA GERİ SAYIM AKTİF";
+          }
+        }
+
+        if (mainTitle && mainSubtitle) {
+          if (isLove) {
+            mainTitle.className =
+              "text-3xl sm:text-5xl font-semibold tracking-tight mb-3 leading-tight font-loveHead text-[#ffd1dc] drop-shadow-[0_2px_20px_rgba(244,167,185,0.3)]";
+            mainTitle.textContent = "Sana Kavuşmama Kalan Süre";
+            mainSubtitle.className = "text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed text-[#f4a7b9]/90";
+            mainSubtitle.textContent = "Her geçen saniye Ankara'ya ve sana biraz daha yaklaşıyorum...";
+          } else {
+            mainTitle.className =
+              "text-3xl sm:text-5xl font-bold tracking-tight mb-3 leading-tight font-friendHead text-white";
+            mainTitle.textContent = "Ankara'ya Dönüş Başladı";
+            mainSubtitle.className = "text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed text-slate-400";
+            mainSubtitle.textContent = "Ayazı açın, çayları demleyin; 15 Ocak'ta iniş yapıyorum.";
+          }
+        }
+
+        // Geri Sayım Kartları
+        const cards = document.querySelectorAll(".countdown-card");
+        const digits = document.querySelectorAll(".countdown-digit");
+        const labels = document.querySelectorAll(".countdown-label");
+
+        cards.forEach(function (card) {
+          card.className = isLove
+            ? "countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500 bg-gradient-to-b from-[#f4a7b9]/16 to-[#250915]/88 border-[#f4a7b9]/30 shadow-xl shadow-black/40"
+            : "countdown-card relative overflow-hidden rounded-3xl p-4 sm:p-6 backdrop-blur-xl border flex flex-col items-center justify-center transition-all duration-500 bg-[#0c1322]/85 border-slate-700/80 shadow-xl shadow-black/45";
+        });
+        digits.forEach(function (d) {
+          d.className = isLove
+            ? "countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2 font-loveBody bg-gradient-to-b from-white via-[#ffd1dc] to-[#f4a7b9] bg-clip-text text-transparent"
+            : "countdown-digit text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight tabular-nums leading-none mb-2 font-friendHead bg-gradient-to-b from-white via-[#00f5d4] to-[#a3e635] bg-clip-text text-transparent";
+        });
+        labels.forEach(function (l) {
+          l.className = isLove
+            ? "countdown-label text-[11px] sm:text-xs font-medium uppercase tracking-[0.22em] text-[#f4a7b9]/85"
+            : "countdown-label text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-slate-400";
+        });
+
+        // Hızlı Aksiyon Butonları
+        document.querySelectorAll(".action-pill-btn").forEach(function (btn) {
+          btn.className = isLove
+            ? "action-pill-btn group flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl backdrop-blur-xl border text-sm font-semibold transition-all active:scale-[0.98] bg-[#2f0c1c]/85 hover:bg-[#3f1126] border-[#f4a7b9]/35 text-[#ffd1dc] shadow-lg shadow-black/35"
+            : "action-pill-btn group flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl backdrop-blur-xl border text-sm font-semibold transition-all active:scale-[0.98] bg-[#0c1322]/88 hover:bg-[#131e33] border-[#00f5d4]/35 text-slate-100 shadow-lg shadow-black/35";
+        });
+
+        // İlerleme Kartı
+        const progressCard = $("progress-card");
+        const progressLabel = $("progress-label");
+        const progressPercent = $("progress-percent");
+        const targetBadge = $("target-date-badge");
+        const progressFill = $("progress-bar-fill");
+        const routeStart = $("route-start-label");
+        const routeIcon = $("route-icon");
+        const routeEnd = $("route-end-label");
+
+        if (progressCard) {
+          progressCard.className = isLove
+            ? "w-full rounded-3xl p-5 sm:p-6 backdrop-blur-xl border transition-all duration-500 mb-6 text-left bg-[#250915]/85 border-[#f4a7b9]/25 shadow-xl shadow-black/40 text-[#ffd1dc]"
+            : "w-full rounded-3xl p-5 sm:p-6 backdrop-blur-xl border transition-all duration-500 mb-6 text-left bg-[#0c1322]/85 border-slate-700/80 shadow-xl shadow-black/45 text-slate-200";
+        }
+        if (progressLabel) progressLabel.textContent = isLove ? "Kavuşma İlerlemesi" : "Ankara Rota İlerlemesi";
+        if (progressPercent) {
+          progressPercent.className = isLove
+            ? "px-2.5 py-0.5 rounded-full text-xs font-bold tabular-nums bg-[#f4a7b9]/20 text-[#ffd1dc] border border-[#f4a7b9]/30"
+            : "px-2.5 py-0.5 rounded-full text-xs font-bold tabular-nums bg-[#00f5d4]/15 text-[#00f5d4] border border-[#00f5d4]/35";
+        }
+        if (targetBadge) {
+          targetBadge.className = isLove
+            ? "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border bg-[#f4a7b9]/10 border-[#f4a7b9]/25 text-[#ffd1dc]"
+            : "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border bg-[#a3e635]/10 border-[#a3e635]/30 text-[#d9f99d]";
+        }
+        if (progressFill) {
+          progressFill.className = isLove
+            ? "h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r from-[#e11d48] via-[#f4a7b9] to-[#ffd1dc] bg-[length:200%_100%] animate-shimmerBar"
+            : "h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r from-[#00f5d4] via-[#2dd4bf] to-[#a3e635] bg-[length:200%_100%] animate-shimmerBar";
+        }
+        if (routeStart) {
+          routeStart.innerHTML = isLove
+            ? '<span class="w-2 h-2 rounded-full bg-[#f4a7b9]"></span><span>Ben</span>'
+            : '<span class="w-2 h-2 rounded-full bg-[#00f5d4]"></span><span>Yola Çıkış</span>';
+        }
+        if (routeIcon) {
+          routeIcon.textContent = isLove ? "♥" : "🪳";
+          routeIcon.className = isLove
+            ? "absolute -top-2.5 px-2 text-sm leading-none text-[#ffd1dc] bg-[#250915] rounded-full"
+            : "absolute -top-2.5 px-1.5 text-sm leading-none bg-[#0c1322] rounded-full";
+        }
+        if (routeEnd) {
+          routeEnd.innerHTML = isLove
+            ? '<span>Sen • Ankara</span><span class="w-2 h-2 rounded-full bg-[#ffd1dc]"></span>'
+            : '<span>ANKARA</span><span class="w-2 h-2 rounded-full bg-[#a3e635]"></span>';
+        }
+
+        // Varış Kartı & Ayarlar Butonu
+        const arrivalCard = $("arrival-card");
+        if (arrivalCard) {
+          arrivalCard.className = isLove
+            ? "relative overflow-hidden rounded-3xl p-7 sm:p-10 backdrop-blur-xl border text-center bg-gradient-to-br from-[#f4a7b9]/20 via-[#2b0c1a]/92 to-[#1a0710]/95 border-[#ffd1dc]/45 text-[#ffd1dc] shadow-2xl"
+            : "relative overflow-hidden rounded-3xl p-7 sm:p-10 backdrop-blur-xl border text-center bg-gradient-to-br from-[#00f5d4]/15 via-[#0c1322]/95 to-[#a3e635]/15 border-[#00f5d4]/50 text-white shadow-2xl";
+        }
+        if ($("arrival-emoji")) $("arrival-emoji").textContent = isLove ? "❤️" : "🪳🎉";
+        if ($("arrival-title")) $("arrival-title").textContent = isLove ? "Sonunda Yanındayım ❤️" : "Ankara'ya Varış Kutlaması! 🎉";
+        if ($("arrival-subtitle")) {
+          $("arrival-subtitle").textContent = isLove
+            ? "15 Ocak geldi... Artık mesafe yok, sadece biz varız sevgilim."
+            : "Abi 15 Ocak geldi, konumu atın geliyorum!";
+        }
+        if ($("replay-celebration-btn")) {
+          $("replay-celebration-btn").className = isLove
+            ? "inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold transition-all active:scale-95 bg-gradient-to-r from-[#ffd1dc] to-[#f4a7b9] text-[#1a0710] shadow-lg"
+            : "inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold transition-all active:scale-95 bg-gradient-to-r from-[#00f5d4] to-[#a3e635] text-slate-950 shadow-lg";
+        }
+
+        const settingsBtn = $("open-settings-btn");
+        if (settingsBtn) {
+          settingsBtn.className = isLove
+            ? "fixed bottom-6 right-5 z-30 w-12 h-12 rounded-2xl backdrop-blur-xl border flex items-center justify-center text-xl shadow-xl transition-all active:scale-95 bg-[#2b0c1a]/92 border-[#f4a7b9]/40 text-[#ffd1dc]"
+            : "fixed bottom-6 right-5 z-30 w-12 h-12 rounded-2xl backdrop-blur-xl border flex items-center justify-center text-xl shadow-xl transition-all active:scale-95 bg-[#0c1322]/92 border-[#00f5d4]/40 text-[#00f5d4]";
+        }
+
+        // Mod Bölümlerini Kesin Display İle Değiştir
+        const friendExtras = $("friend-extras");
+        const loveExtras = $("love-extras");
+        if (friendExtras) friendExtras.style.display = isLove ? "none" : "block";
+        if (loveExtras) loveExtras.style.display = isLove ? "block" : "none";
+
+        if ($("target-date-text")) $("target-date-text").textContent = formatTurkishTargetDate(state.targetDate);
+
+        particleEngine.setTheme(state.theme);
+        if (isLove) {
+          renderDailyMessage(getTodayDayIndex());
+        }
+      }
+
+      /* =====================================================================
+         14. CANLI GERİ SAYIM & DİNAMİK DURUM ROZETİ
+         ===================================================================== */
+      function setDigitFlip(id, key, val) {
+        const el = $(id);
+        if (!el) return;
+        const str = padZero(val);
+        if (state.lastDigits[key] !== str) {
+          state.lastDigits[key] = str;
+          el.textContent = str;
+          el.classList.remove("animate-digitFlip");
+          void el.offsetWidth;
+          el.classList.add("animate-digitFlip");
+        }
+      }
+
+      function updateStatusBadge(daysLeft) {
+        const badge = $("dynamic-status-badge");
+        if (!badge) return;
+        const isLove = state.theme === "love";
+        let text = "";
+
+        if (isLove) {
+          if (daysLeft <= 0) text = "❤️ Kavuşma vakti geldi sevgilim!";
+          else if (daysLeft <= 7) text = "💌 Son hafta! Kalbim şimdiden yanında";
+          else if (daysLeft <= 20) text = "🌹 Günler hızla azalıyor, az kaldı";
+          else text = "✨ Her gün sana biraz daha yaklaşıyorum";
+          badge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border bg-[#f4a7b9]/15 text-[#ffd1dc] border-[#f4a7b9]/30";
+        } else {
+          if (daysLeft <= 0) text = "👑 Ankara'ya iniş tamamlandı, ayaz seni bekliyor!";
+          else if (daysLeft <= 7) text = "🚨 Ankara sınırına dayanıldı";
+          else if (daysLeft <= 20) text = "🚌 Otogarda çay molası yakın";
+          else if (daysLeft <= 35) text = "🎒 Bavula ilk terlik girdi";
+          else text = "🪳 Hamamböceği konseyinden izin bekleniyor";
+          badge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border bg-[#a3e635]/15 text-[#d9f99d] border-[#a3e635]/30";
+        }
+        badge.textContent = text;
+      }
+
+      function updateCountdown() {
+        updateMidnightTimer();
+        if (state.isTrolling) return;
+
+        try {
+          const nowMs = getEffectiveNowMs();
+          const targetMs = state.targetDate.getTime();
+          const startMs = state.startDate.getTime();
+          const diff = targetMs - nowMs;
+
+          const total = Math.max(1, targetMs - startMs);
+          let pct = diff <= 0 ? 100 : Math.round(((nowMs - startMs) / total) * 100);
+          pct = Math.max(2, Math.min(100, pct));
+
+          if ($("progress-percent")) $("progress-percent").textContent = "%" + pct;
+          if ($("progress-bar-fill")) $("progress-bar-fill").style.width = pct + "%";
+
+          const cdSec = $("countdown-section");
+          const arrSec = $("arrival-section");
+
+          if (diff <= 0) {
+            state.isArrived = true;
+            updateStatusBadge(0);
+            if (cdSec) cdSec.style.display = "none";
+            if (arrSec) arrSec.style.display = "block";
+            if (!state.arrivalTriggeredOnce) {
+              state.arrivalTriggeredOnce = true;
+              particleEngine.triggerCelebration(state.theme);
+            }
+            return;
+          }
+
+          state.isArrived = false;
+          state.arrivalTriggeredOnce = false;
+          if (cdSec) cdSec.style.display = "block";
+          if (arrSec) arrSec.style.display = "none";
+
+          const days = Math.floor(diff / 86400000);
+          const hours = Math.floor((diff / 3600000) % 24);
+          const minutes = Math.floor((diff / 60000) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+
+          updateStatusBadge(days);
+          setDigitFlip("cd-days", "days", days);
+          setDigitFlip("cd-hours", "hours", hours);
+          setDigitFlip("cd-minutes", "minutes", minutes);
+          setDigitFlip("cd-seconds", "seconds", seconds);
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         15. MODALLAR & ÖNİZLEME AYARLARI
+         ===================================================================== */
+      function setModalOpen(modalId, open) {
+        const el = $(modalId);
+        if (!el) return;
+        el.style.display = open ? "flex" : "none";
+      }
+
+      function openInstallGuideModal() {
+        try {
+          const ua = navigator.userAgent || "";
+          const isIOS = /iPhone|iPad|iPod/i.test(ua);
+          const isAndroid = /Android/i.test(ua);
+          if ($("badge-ios-detected")) $("badge-ios-detected").style.display = isIOS ? "inline-block" : "none";
+          if ($("badge-android-detected")) $("badge-android-detected").style.display = isAndroid ? "inline-block" : "none";
+        } catch (e) {}
+        setModalOpen("install-modal", true);
+      }
+
+      function openSettingsModal() {
+        try {
+          if ($("input-target-date")) $("input-target-date").value = formatDatetimeLocal(state.targetDate);
+          if ($("input-sim-day")) $("input-sim-day").value = String(state.simDayOffset);
+          if ($("sim-day-display")) {
+            $("sim-day-display").textContent =
+              state.simDayOffset === 0 ? "+0 Gün (Bugün)" : "+" + state.simDayOffset + " Gün İleri";
+          }
+        } catch (e) {}
+        setModalOpen("settings-modal", true);
+      }
+
+      function loadPreviewOverrides() {
+        try {
+          const saved = readJSON(STORAGE_KEYS.PREVIEW, null);
+          if (!saved) return;
+          if (saved.targetDate) {
+            const dt = new Date(saved.targetDate);
+            if (!isNaN(dt.getTime())) state.targetDate = dt;
+          }
+          if (typeof saved.simDayOffset === "number" && !isNaN(saved.simDayOffset)) {
+            state.simDayOffset = Math.max(0, Math.min(54, saved.simDayOffset));
+          }
+          if (typeof saved.spotifyTrackUrl === "string") {
+            state.spotifyTrackUrl = saved.spotifyTrackUrl.trim();
+          }
+        } catch (e) {}
+      }
+
+      function savePreviewOverrides() {
+        writeJSON(STORAGE_KEYS.PREVIEW, {
+          targetDate: state.targetDate.toISOString(),
+          simDayOffset: state.simDayOffset,
+          spotifyTrackUrl: state.spotifyTrackUrl
+        });
+      }
+
+      /* =====================================================================
+         16. OLAY DİNLEYİCİLERİNİ ANINDA BAĞLA (DOM HAZIR, GECİKME YOK)
+         ===================================================================== */
+      function bindAllEvents() {
+        // Giriş Seçim Butonları (Doğrudan anında çalışır)
+        const friendBtn = $("select-friend-btn");
+        const loveBtn = $("select-love-btn");
+        if (friendBtn) {
+          friendBtn.addEventListener("click", function () {
+            enterMode("friend");
+          });
+        }
+        if (loveBtn) {
+          loveBtn.addEventListener("click", function () {
+            enterMode("love");
+          });
+        }
+
+        // Üst Bar Geri ve Anlık Tema Değiştirici
+        const backBtn = $("back-to-entry-btn");
+        if (backBtn) backBtn.addEventListener("click", returnToEntry);
+
+        const instantSwitchBtn = $("instant-switch-btn");
+        if (instantSwitchBtn) {
+          instantSwitchBtn.addEventListener("click", function () {
+            const next = state.theme === "love" ? "friend" : "love";
+            applyTheme(next);
+            try { window.scrollTo(0, 0); } catch (e) {}
+            showToast(next === "love" ? "Sevgili Modu aktif ❤️" : "Arkadaş Modu aktif 🪳");
+            if (next === "love") {
+              particleEngine.spawnHeartBurst((window.innerWidth || 360) / 2, (window.innerHeight || 640) * 0.4, 16);
+            }
+          });
+        }
+
+        // Takvime Ekle & Ana Ekrana Sabitle
+        const addCalBtn = $("add-calendar-btn");
+        if (addCalBtn) addCalBtn.addEventListener("click", downloadICSFile);
+
+        const pinBtn = $("pin-home-btn");
+        if (pinBtn) {
+          pinBtn.addEventListener("click", function () {
+            if (state.deferredInstallPrompt) {
+              try {
+                state.deferredInstallPrompt.prompt();
+                state.deferredInstallPrompt = null;
+                return;
+              } catch (e) {}
+            }
+            openInstallGuideModal();
+          });
+        }
+
+        // Kurulum Modalı Kapatma
+        if ($("close-install-btn")) $("close-install-btn").addEventListener("click", function () { setModalOpen("install-modal", false); });
+        if ($("install-modal-ok-btn")) $("install-modal-ok-btn").addEventListener("click", function () { setModalOpen("install-modal", false); });
+        if ($("install-modal")) {
+          $("install-modal").addEventListener("click", function (e) {
+            if (e.target === $("install-modal")) setModalOpen("install-modal", false);
+          });
+        }
+
+        // Arkadaş Modu: Trol & Hamamböceği
+        if ($("troll-speed-btn")) $("troll-speed-btn").addEventListener("click", triggerTrollSpeedUp);
+        if ($("spawn-roach-btn")) {
+          $("spawn-roach-btn").addEventListener("click", function () {
+            spawnCockroach(false);
+            if (Math.random() > 0.55) {
+              setTimeout(function () { spawnCockroach(false); }, 250);
+            }
+          });
+        }
+        if ($("clear-roaches-btn")) {
+          $("clear-roaches-btn").addEventListener("click", function () {
+            clearAllRoaches();
+            showToast("Ekran temizlendi 🧹");
+          });
+        }
+
+        // Sevgili Modu: Zarf Açma & Günlük Takvim
+        if ($("open-today-envelope-btn")) {
+          $("open-today-envelope-btn").addEventListener("click", function () {
+            const todayIdx = getTodayDayIndex();
+            const map = readJSON(STORAGE_KEYS.OPENED_DAYS, {});
+            map[todayIdx] = true;
+            writeJSON(STORAGE_KEYS.OPENED_DAYS, map);
+            renderDailyMessage(todayIdx);
+            particleEngine.spawnHeartBurst((window.innerWidth || 360) / 2, (window.innerHeight || 640) * 0.42, 16);
+          });
+        }
+
+        if ($("toggle-calendar-grid-btn")) {
+          $("toggle-calendar-grid-btn").addEventListener("click", function () {
+            state.calendarExpanded = !state.calendarExpanded;
+            const grid = $("daily-calendar-grid");
+            const chev = $("calendar-chevron");
+            if (grid) grid.style.display = state.calendarExpanded ? "grid" : "none";
+            if (chev) chev.style.transform = state.calendarExpanded ? "rotate(0deg)" : "rotate(-90deg)";
+          });
+        }
+
+        if ($("daily-calendar-grid")) {
+          $("daily-calendar-grid").addEventListener("click", function (e) {
+            const btn = e.target.closest("button[data-day-index]");
+            if (!btn) return;
+            const idx = parseInt(btn.getAttribute("data-day-index"), 10);
+            if (isNaN(idx)) return;
+
+            if (idx <= getTodayDayIndex()) {
+              renderDailyMessage(idx);
+            } else {
+              btn.classList.remove("animate-wiggle");
+              void btn.offsetWidth;
+              btn.classList.add("animate-wiggle");
+              showToast("Sabret sevgilim, bu mesajın zamanı henüz gelmedi ❤️");
+            }
+          });
+        }
+
+        // Sevgili Modu: Spotify Link Paneli & Tarama Modalı
+        if ($("toggle-spotify-link-btn")) {
+          $("toggle-spotify-link-btn").addEventListener("click", function () {
+            const panel = $("spotify-link-panel");
+            if (!panel) return;
+            const isOpen = panel.style.display === "block";
+            panel.style.display = isOpen ? "none" : "block";
+            if (!isOpen && $("inline-spotify-url")) {
+              setTimeout(function () { $("inline-spotify-url").focus(); }, 60);
+            }
+          });
+        }
+
+        if ($("inline-spotify-apply-btn")) {
+          $("inline-spotify-apply-btn").addEventListener("click", function () {
+            const raw = ($("inline-spotify-url") && $("inline-spotify-url").value.trim()) || "";
+            if (!parseSpotifyEmbed(raw)) {
+              showToast("Geçerli bir open.spotify.com/track/... linki yapıştır.");
+              return;
+            }
+            state.spotifyTrackUrl = raw;
+            savePreviewOverrides();
+            updateSpotifyUI();
+            if ($("spotify-link-panel")) $("spotify-link-panel").style.display = "none";
+            showToast("Canlı Spotify oynatıcı eklendi 🎵");
+          });
+        }
+
+        if ($("inline-spotify-clear-btn")) {
+          $("inline-spotify-clear-btn").addEventListener("click", function () {
+            state.spotifyTrackUrl = "";
+            if ($("inline-spotify-url")) $("inline-spotify-url").value = "";
+            savePreviewOverrides();
+            updateSpotifyUI();
+            showToast("Spotify linki temizlendi.");
+          });
+        }
+
+        if ($("enlarge-spotify-btn")) {
+          $("enlarge-spotify-btn").addEventListener("click", function () { setModalOpen("spotify-scan-modal", true); });
+        }
+        if ($("close-spotify-scan-btn")) {
+          $("close-spotify-scan-btn").addEventListener("click", function () { setModalOpen("spotify-scan-modal", false); });
+        }
+        if ($("spotify-scan-done-btn")) {
+          $("spotify-scan-done-btn").addEventListener("click", function () { setModalOpen("spotify-scan-modal", false); });
+        }
+        if ($("spotify-scan-modal")) {
+          $("spotify-scan-modal").addEventListener("click", function (e) {
+            if (e.target === $("spotify-scan-modal")) setModalOpen("spotify-scan-modal", false);
+          });
+        }
+
+        // Sevgili Modu: Özledim Butonu
+        if ($("miss-you-btn")) {
+          $("miss-you-btn").addEventListener("click", function () {
+            try {
+              const rect = $("miss-you-btn").getBoundingClientRect();
+              particleEngine.spawnHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 22);
+            } catch (e) {}
+            const next = getMissCount() + 1;
+            writeJSON(STORAGE_KEYS.MISS_COUNT, next);
+            updateMissUI(true);
+            try { if (navigator.vibrate) navigator.vibrate(15); } catch (e) {}
+          });
+        }
+
+        // Kutlamayı Tekrarla
+        if ($("replay-celebration-btn")) {
+          $("replay-celebration-btn").addEventListener("click", function () {
+            particleEngine.triggerCelebration(state.theme);
+          });
+        }
+
+        // Ayarlar & Önizleme Modalı
+        if ($("open-settings-btn")) $("open-settings-btn").addEventListener("click", openSettingsModal);
+        if ($("close-settings-btn")) $("close-settings-btn").addEventListener("click", function () { setModalOpen("settings-modal", false); });
+        if ($("settings-modal")) {
+          $("settings-modal").addEventListener("click", function (e) {
+            if (e.target === $("settings-modal")) setModalOpen("settings-modal", false);
+          });
+        }
+
+        if ($("input-sim-day")) {
+          $("input-sim-day").addEventListener("input", function () {
+            const v = parseInt($("input-sim-day").value, 10) || 0;
+            if ($("sim-day-display")) {
+              $("sim-day-display").textContent = v === 0 ? "+0 Gün (Bugün)" : "+" + v + " Gün İleri";
+            }
+          });
+        }
+
+        if ($("settings-form")) {
+          $("settings-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const dt = new Date($("input-target-date").value);
+            if (isNaN(dt.getTime())) {
+              showToast("Geçerli bir tarih seç.");
+              return;
+            }
+            state.targetDate = dt;
+            state.simDayOffset = parseInt($("input-sim-day").value, 10) || 0;
+            savePreviewOverrides();
+            if ($("target-date-text")) $("target-date-text").textContent = formatTurkishTargetDate(state.targetDate);
+            renderDailyMessage(getTodayDayIndex());
+            updateCountdown();
+            setModalOpen("settings-modal", false);
+            showToast("Önizleme tarihi uygulandı ✨");
+          });
+        }
+
+        if ($("test-arrival-btn")) {
+          $("test-arrival-btn").addEventListener("click", function () {
+            state.targetDate = new Date(getEffectiveNowMs() - 1000);
+            state.arrivalTriggeredOnce = false;
+            if ($("target-date-text")) $("target-date-text").textContent = formatTurkishTargetDate(state.targetDate);
+            updateCountdown();
+            setModalOpen("settings-modal", false);
+            showToast("Ankara'ya Varış Kutlaması önizleniyor 🎉");
+          });
+        }
+
+        if ($("reset-settings-btn")) {
+          $("reset-settings-btn").addEventListener("click", function () {
+            safeStorage.removeItem(STORAGE_KEYS.PREVIEW);
+            state.targetDate = new Date(CONFIG.targetDate);
+            state.startDate = new Date(CONFIG.startDate);
+            state.simDayOffset = 0;
+            state.arrivalTriggeredOnce = false;
+            if ($("target-date-text")) $("target-date-text").textContent = formatTurkishTargetDate(state.targetDate);
+            renderDailyMessage(getTodayDayIndex());
+            updateCountdown();
+            setModalOpen("settings-modal", false);
+            showToast("15 Ocak 2027 varsayılan tarihine dönüldü ↺");
+          });
+        }
+
+        if ($("copy-love-link-btn")) {
+          $("copy-love-link-btn").addEventListener("click", function () {
+            const ok = copyToClipboardSafe(buildShareLink("mod=sevgili&kilit=1"));
+            showToast(ok ? "Sevgili linki kopyalandı ❤️" : "Link: ?mod=sevgili&kilit=1");
+          });
+        }
+
+        if ($("copy-friend-link-btn")) {
+          $("copy-friend-link-btn").addEventListener("click", function () {
+            const ok = copyToClipboardSafe(buildShareLink("mod=arkadas"));
+            showToast(ok ? "Arkadaş linki kopyalandı 🪳" : "Link: ?mod=arkadas");
+          });
+        }
+
+        // Native PWA kurulum istemi yakalayıcı
+        try {
+          window.addEventListener("beforeinstallprompt", function (e) {
+            e.preventDefault();
+            state.deferredInstallPrompt = e;
+          });
+        } catch (e) {}
+      }
+
+      /* =====================================================================
+         17. URL PARAMETRELERİ (?mod=arkadas | ?mod=sevgili & ?kilit=1)
+         ===================================================================== */
+      function checkUrlParams() {
+        try {
+          const params = new URLSearchParams(window.location.search || "");
+          const mod = (params.get("mod") || "").trim().toLowerCase();
+          const kilit = (params.get("kilit") || "").trim().toLowerCase();
+
+          if (kilit === "1" || kilit === "true") {
+            state.lockedMode = true;
+            if ($("instant-switch-btn")) $("instant-switch-btn").style.display = "none";
+            if ($("back-to-entry-btn")) $("back-to-entry-btn").style.display = "none";
+          }
+
+          if (mod === "sevgili") {
+            enterMode("love");
+            return true;
+          }
+          if (mod === "arkadas" || mod === "arkadaş") {
+            enterMode("friend");
+            return true;
+          }
+        } catch (e) {}
+        return false;
+      }
+
+      /* =====================================================================
+         18. İZOLE BAŞLATMA (HER MODÜL AYRI TRY/CATCH İÇİNDE)
+         ===================================================================== */
+      try { bindAllEvents(); } catch (e) {}
+      try { initPWAAssets(); } catch (e) {}
+      try { loadPreviewOverrides(); } catch (e) {}
+      try { renderSpotifyBars($("spotify-code-bars")); } catch (e) {}
+      try { renderSpotifyBars($("spotify-code-bars-large")); } catch (e) {}
+      try { updateSpotifyUI(); } catch (e) {}
+      try { updateMissUI(false); } catch (e) {}
+      try { updateRoachScoreUI(getRoachScore(), false); } catch (e) {}
+      try {
+        const directOpened = checkUrlParams();
+        if (!directOpened) {
+          applyTheme("friend");
+        }
+      } catch (e) {}
+      try {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      } catch (e) {}
+      try { particleEngine.start(); } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
